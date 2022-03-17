@@ -1,0 +1,3345 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Kateřina Hudáčová" />
+
+
+<title>Selected Topics of Psychometrics (NMST570)</title>
+
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<script src="site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.20/datatables.js"></script>
+<link href="site_libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.11.3/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+<style type="text/css">
+/* for pandoc --citeproc since 2.11 */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Final Project</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Selected Topics of Psychometrics (NMST570)</h1>
+<h3 class="subtitle">Final project</h3>
+<h4 class="author">Kateřina Hudáčová</h4>
+
+</div>
+
+
+<style>
+body {
+text-align: justify}
+</style>
+<!-- Chunk options: https://bookdown.org/yihui/rmarkdown-cookbook/hide-one.html -->
+<p></br></p>
+<div id="data" class="section level3">
+<h3>Data</h3>
+<p>I chose the <a href="https://rdrr.io/cran/ShinyItemAnalysis/man/BFI2.html">BFI2 dataset</a> from the <code>ShinyItemAnalysis</code> package. The wording of the items can be found in the attachment of the study <span class="citation">(Hřebíčková et al., 2020)</span>. The dataset includes answers from <span class="math inline">\(1733\)</span> respondents to <span class="math inline">\(63\)</span> items – of those, <span class="math inline">\(60\)</span> items are a part of the inventory, and <span class="math inline">\(3\)</span> items are demographic. The <span class="math inline">\(60\)</span> inventory items are scored on a 5-point Likert scale (ordinal) and the <span class="math inline">\(3\)</span> demographic items are: age (numeric), gender (nominal/dichotomous), education (nominal). I used alternative item names provided in the dataset documentation and I set both the <code>Gender</code> and <code>Educ</code> variables to factors with appropriate labels. I also created separate data frames for the 5 domains (<em>Extraversion, Agreeability, Conscientiousness, Negative Emotionality, Open-Mindedness</em>).</p>
+<p>I provided descriptive statistics for all available grouping variables. Circa <span class="math inline">\(57.9 \%\)</span> of the respondents are female, <span class="math inline">\(42.1 \%\)</span> are male. Notably, the dataset only covers an age group of people between <span class="math inline">\(15\)</span> and <span class="math inline">\(26\)</span> with a mean of <span class="math inline">\(20.06\)</span> years. Out of the <span class="math inline">\(723\)</span> respondents who specified their highest level of attained education – <span class="math inline">\(32.1 \%\)</span> finished a secondary technical school, <span class="math inline">\(27.9 \%\)</span> finished a secondary general school, <span class="math inline">\(13.4 \%\)</span> finished another secondary school, <span class="math inline">\(11.2 \%\)</span> obtained a Masters degree, <span class="math inline">\(10.4 \%\)</span> obtained a Bachelor degree, <span class="math inline">\(4 \%\)</span> finished a tertiary professional school and finally, <span class="math inline">\(1 \%\)</span> obtained a PhD.</p>
+<p>Although the <code>BFI2</code> measures multiple traits that are commonly assumed to be largely independent, there is some evidence for a single general factor of personality <span class="citation">(Musek, 2007)</span>, which is why I provided descriptive statistics and a histogram of the total score. The mean total score spans from <span class="math inline">\(111\)</span> to <span class="math inline">\(258\)</span> with a mean of <span class="math inline">\(200.8\)</span> and with a median of <span class="math inline">\(201\)</span>. I also provided total scores and histograms for the 5 respective domains. When observing the distribution of scores grouped by the Big5 domains it can be stated that they do not follow a normal distribution – they are multimodal. <em>Open-Mindedness</em> has the highest mean in this sample (<span class="math inline">\(43.48\)</span>) followed by <em>Agreeability</em> (<span class="math inline">\(43.31\)</span>), <em>Extraversion</em> (<span class="math inline">\(39.59\)</span>), <em>Conscientiousness</em> (<span class="math inline">\(38.75\)</span>) and <em>Negative Emotionality</em> (35.63). <em>Negative Emotionality</em> exhibits the highest standard deviation, which points to relatively spread out responses on the corresponding items. It could be hypothesized, that these results are, to a certain extent, typical of the given age group (e.g. high <em>Open-Mindedness</em>). On average, female respondents in this sample scored higher than males in all dimensions except <em>Extraversion</em>. The most distinct gender differences in this sample seem to emerge along the dimensions of <em>Negative Emotionaliy</em> (<span class="math inline">\(\bar X_{(F)} = 37.61\)</span>, <span class="math inline">\(\bar X_{(M)} = 32.92\)</span>) and <em>Agreeability</em> (<span class="math inline">\(\bar X_{(F)} = 44.3\)</span>, <span class="math inline">\(\bar X_{(M)} = 41.95\)</span>). </br></p>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+Item descriptives
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+Mean
+</th>
+<th style="text-align:left;">
+Sd
+</th>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+Mean
+</th>
+<th style="text-align:left;">
+Sd
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+iEscb01
+</td>
+<td style="text-align:left;">
+3.62
+</td>
+<td style="text-align:left;">
+1.05
+</td>
+<td style="text-align:left;">
+iEscb31r
+</td>
+<td style="text-align:left;">
+2.71
+</td>
+<td style="text-align:left;">
+1.27
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+iAcmp02
+</td>
+<td style="text-align:left;">
+4.1
+</td>
+<td style="text-align:left;">
+0.83
+</td>
+<td style="text-align:left;">
+iAcmp32
+</td>
+<td style="text-align:left;">
+3.94
+</td>
+<td style="text-align:left;">
+0.8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+iCorg03r
+</td>
+<td style="text-align:left;">
+3.05
+</td>
+<td style="text-align:left;">
+1.13
+</td>
+<td style="text-align:left;">
+iCorg33
+</td>
+<td style="text-align:left;">
+3.2
+</td>
+<td style="text-align:left;">
+1.16
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+iNanx04r
+</td>
+<td style="text-align:left;">
+3.06
+</td>
+<td style="text-align:left;">
+1.14
+</td>
+<td style="text-align:left;">
+iNanx34
+</td>
+<td style="text-align:left;">
+3.55
+</td>
+<td style="text-align:left;">
+1.1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+iOaes05r
+</td>
+<td style="text-align:left;">
+3.21
+</td>
+<td style="text-align:left;">
+1.3
+</td>
+<td style="text-align:left;">
+iOaes35
+</td>
+<td style="text-align:left;">
+3.73
+</td>
+<td style="text-align:left;">
+1.06
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+iEasr06
+</td>
+<td style="text-align:left;">
+3.59
+</td>
+<td style="text-align:left;">
+1.05
+</td>
+<td style="text-align:left;">
+iEasr36r
+</td>
+<td style="text-align:left;">
+3.2
+</td>
+<td style="text-align:left;">
+1.04
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+iArsp07
+</td>
+<td style="text-align:left;">
+4.05
+</td>
+<td style="text-align:left;">
+0.81
+</td>
+<td style="text-align:left;">
+iArsp37r
+</td>
+<td style="text-align:left;">
+3.16
+</td>
+<td style="text-align:left;">
+1.16
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+iCprd08r
+</td>
+<td style="text-align:left;">
+2.34
+</td>
+<td style="text-align:left;">
+1.13
+</td>
+<td style="text-align:left;">
+iCprd38
+</td>
+<td style="text-align:left;">
+3.58
+</td>
+<td style="text-align:left;">
+0.96
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+iNdep09r
+</td>
+<td style="text-align:left;">
+2.68
+</td>
+<td style="text-align:left;">
+1.12
+</td>
+<td style="text-align:left;">
+iNdep39
+</td>
+<td style="text-align:left;">
+2.8
+</td>
+<td style="text-align:left;">
+1.21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+iOint10
+</td>
+<td style="text-align:left;">
+3.94
+</td>
+<td style="text-align:left;">
+0.96
+</td>
+<td style="text-align:left;">
+iOint40
+</td>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+0.91
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+iEenl11r
+</td>
+<td style="text-align:left;">
+3.64
+</td>
+<td style="text-align:left;">
+1.11
+</td>
+<td style="text-align:left;">
+iEenl41
+</td>
+<td style="text-align:left;">
+3.42
+</td>
+<td style="text-align:left;">
+1.03
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+iAtrs12r
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+1.11
+</td>
+<td style="text-align:left;">
+iAtrs42r
+</td>
+<td style="text-align:left;">
+2.83
+</td>
+<td style="text-align:left;">
+1.01
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+iCrsp13
+</td>
+<td style="text-align:left;">
+3.63
+</td>
+<td style="text-align:left;">
+0.95
+</td>
+<td style="text-align:left;">
+iCrsp43
+</td>
+<td style="text-align:left;">
+3.87
+</td>
+<td style="text-align:left;">
+0.86
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+iNemt14
+</td>
+<td style="text-align:left;">
+3.02
+</td>
+<td style="text-align:left;">
+1.25
+</td>
+<td style="text-align:left;">
+iNemt44r
+</td>
+<td style="text-align:left;">
+2.68
+</td>
+<td style="text-align:left;">
+1.1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+iOcrt15
+</td>
+<td style="text-align:left;">
+3.55
+</td>
+<td style="text-align:left;">
+0.97
+</td>
+<td style="text-align:left;">
+iOcrt45r
+</td>
+<td style="text-align:left;">
+3.91
+</td>
+<td style="text-align:left;">
+0.99
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+iEscb16r
+</td>
+<td style="text-align:left;">
+2.94
+</td>
+<td style="text-align:left;">
+1.31
+</td>
+<td style="text-align:left;">
+iEscb46
+</td>
+<td style="text-align:left;">
+3.53
+</td>
+<td style="text-align:left;">
+1.14
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+iAcmp17r
+</td>
+<td style="text-align:left;">
+4.02
+</td>
+<td style="text-align:left;">
+0.97
+</td>
+<td style="text-align:left;">
+iAcmp47r
+</td>
+<td style="text-align:left;">
+3.29
+</td>
+<td style="text-align:left;">
+1.31
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+iCorg18
+</td>
+<td style="text-align:left;">
+3.32
+</td>
+<td style="text-align:left;">
+1.15
+</td>
+<td style="text-align:left;">
+iCorg48r
+</td>
+<td style="text-align:left;">
+3.34
+</td>
+<td style="text-align:left;">
+1.21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+iNanx19
+</td>
+<td style="text-align:left;">
+3.07
+</td>
+<td style="text-align:left;">
+1.07
+</td>
+<td style="text-align:left;">
+iNanx49r
+</td>
+<td style="text-align:left;">
+3.29
+</td>
+<td style="text-align:left;">
+1.12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+iOaes20
+</td>
+<td style="text-align:left;">
+3.4
+</td>
+<td style="text-align:left;">
+1.23
+</td>
+<td style="text-align:left;">
+iOaes50r
+</td>
+<td style="text-align:left;">
+3.65
+</td>
+<td style="text-align:left;">
+1.24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+iEasr21
+</td>
+<td style="text-align:left;">
+2.95
+</td>
+<td style="text-align:left;">
+1.19
+</td>
+<td style="text-align:left;">
+iEasr51r
+</td>
+<td style="text-align:left;">
+2.97
+</td>
+<td style="text-align:left;">
+1.15
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+iArsp22r
+</td>
+<td style="text-align:left;">
+3.99
+</td>
+<td style="text-align:left;">
+0.99
+</td>
+<td style="text-align:left;">
+iArsp52
+</td>
+<td style="text-align:left;">
+4.2
+</td>
+<td style="text-align:left;">
+0.75
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+iCprd23r
+</td>
+<td style="text-align:left;">
+2.75
+</td>
+<td style="text-align:left;">
+1.17
+</td>
+<td style="text-align:left;">
+iCprd53
+</td>
+<td style="text-align:left;">
+3.53
+</td>
+<td style="text-align:left;">
+1.01
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+iNdep24r
+</td>
+<td style="text-align:left;">
+2.89
+</td>
+<td style="text-align:left;">
+1.13
+</td>
+<td style="text-align:left;">
+iNdep54
+</td>
+<td style="text-align:left;">
+2.75
+</td>
+<td style="text-align:left;">
+1.23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+iOint25r
+</td>
+<td style="text-align:left;">
+3.56
+</td>
+<td style="text-align:left;">
+1.21
+</td>
+<td style="text-align:left;">
+iOint55r
+</td>
+<td style="text-align:left;">
+3.52
+</td>
+<td style="text-align:left;">
+1.07
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+iEenl26r
+</td>
+<td style="text-align:left;">
+3.45
+</td>
+<td style="text-align:left;">
+0.92
+</td>
+<td style="text-align:left;">
+iEenl56
+</td>
+<td style="text-align:left;">
+3.57
+</td>
+<td style="text-align:left;">
+0.95
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+iAtrs27
+</td>
+<td style="text-align:left;">
+3.81
+</td>
+<td style="text-align:left;">
+1.06
+</td>
+<td style="text-align:left;">
+iAtrs57
+</td>
+<td style="text-align:left;">
+2.93
+</td>
+<td style="text-align:left;">
+1.03
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+iCrsp28r
+</td>
+<td style="text-align:left;">
+3.2
+</td>
+<td style="text-align:left;">
+1.01
+</td>
+<td style="text-align:left;">
+iCrsp58r
+</td>
+<td style="text-align:left;">
+2.94
+</td>
+<td style="text-align:left;">
+1.11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+iNemt29r
+</td>
+<td style="text-align:left;">
+2.97
+</td>
+<td style="text-align:left;">
+1.18
+</td>
+<td style="text-align:left;">
+iNemt59
+</td>
+<td style="text-align:left;">
+2.88
+</td>
+<td style="text-align:left;">
+1.17
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+iOcrt30r
+</td>
+<td style="text-align:left;">
+3.56
+</td>
+<td style="text-align:left;">
+1.12
+</td>
+<td style="text-align:left;">
+iOcrt60
+</td>
+<td style="text-align:left;">
+3.45
+</td>
+<td style="text-align:left;">
+0.97
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+Age and Total Score
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+N
+</th>
+<th style="text-align:left;">
+Mean
+</th>
+<th style="text-align:left;">
+Std. Dev.
+</th>
+<th style="text-align:left;">
+Min
+</th>
+<th style="text-align:left;">
+Pctl. 25
+</th>
+<th style="text-align:left;">
+Pctl. 75
+</th>
+<th style="text-align:left;">
+Max
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Age
+</td>
+<td style="text-align:left;">
+1733
+</td>
+<td style="text-align:left;">
+20.06
+</td>
+<td style="text-align:left;">
+2.53
+</td>
+<td style="text-align:left;">
+15
+</td>
+<td style="text-align:left;">
+18
+</td>
+<td style="text-align:left;">
+22
+</td>
+<td style="text-align:left;">
+26
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Total Score
+</td>
+<td style="text-align:left;">
+1733
+</td>
+<td style="text-align:left;">
+200.77
+</td>
+<td style="text-align:left;">
+18.5
+</td>
+<td style="text-align:left;">
+111
+</td>
+<td style="text-align:left;">
+189
+</td>
+<td style="text-align:left;">
+213
+</td>
+<td style="text-align:left;">
+258
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+Gender and Education
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+N
+</th>
+<th style="text-align:left;">
+Percent
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Gender
+</td>
+<td style="text-align:left;">
+1733
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+… Female
+</td>
+<td style="text-align:left;">
+1003
+</td>
+<td style="text-align:left;">
+57.9%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+… Male
+</td>
+<td style="text-align:left;">
+730
+</td>
+<td style="text-align:left;">
+42.1%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Education
+</td>
+<td style="text-align:left;">
+723
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+… Secondary technical school
+</td>
+<td style="text-align:left;">
+232
+</td>
+<td style="text-align:left;">
+32.1%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+… Secondary general school
+</td>
+<td style="text-align:left;">
+202
+</td>
+<td style="text-align:left;">
+27.9%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+… Other secondary school
+</td>
+<td style="text-align:left;">
+97
+</td>
+<td style="text-align:left;">
+13.4%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+… Tertiary professional school
+</td>
+<td style="text-align:left;">
+29
+</td>
+<td style="text-align:left;">
+4%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+… Bachelor degree
+</td>
+<td style="text-align:left;">
+75
+</td>
+<td style="text-align:left;">
+10.4%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+… Masters degree
+</td>
+<td style="text-align:left;">
+81
+</td>
+<td style="text-align:left;">
+11.2%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+… PhD
+</td>
+<td style="text-align:left;">
+7
+</td>
+<td style="text-align:left;">
+1%
+</td>
+</tr>
+</tbody>
+</table>
+<div class="figure" style="text-align: center">
+<img src="index_files/figure-html/total_scores-1.png" alt="Total scores histogram" width="672" />
+<p class="caption">
+Total scores histogram
+</p>
+</div>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+Domain Total Scores
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Extraversion
+</th>
+<th style="text-align:left;">
+Agreeability
+</th>
+<th style="text-align:left;">
+Conscientiousness
+</th>
+<th style="text-align:left;">
+Neg. Emotionality
+</th>
+<th style="text-align:left;">
+Open-Mindedness
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Mean
+</td>
+<td style="text-align:left;">
+39.59
+</td>
+<td style="text-align:left;">
+43.31
+</td>
+<td style="text-align:left;">
+38.75
+</td>
+<td style="text-align:left;">
+35.63
+</td>
+<td style="text-align:left;">
+43.48
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SD
+</td>
+<td style="text-align:left;">
+8.3
+</td>
+<td style="text-align:left;">
+6.79
+</td>
+<td style="text-align:left;">
+8.34
+</td>
+<td style="text-align:left;">
+9.26
+</td>
+<td style="text-align:left;">
+7.73
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Median
+</td>
+<td style="text-align:left;">
+40
+</td>
+<td style="text-align:left;">
+44
+</td>
+<td style="text-align:left;">
+39
+</td>
+<td style="text-align:left;">
+36
+</td>
+<td style="text-align:left;">
+44
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Min
+</td>
+<td style="text-align:left;">
+17
+</td>
+<td style="text-align:left;">
+19
+</td>
+<td style="text-align:left;">
+12
+</td>
+<td style="text-align:left;">
+12
+</td>
+<td style="text-align:left;">
+19
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Max
+</td>
+<td style="text-align:left;">
+59
+</td>
+<td style="text-align:left;">
+60
+</td>
+<td style="text-align:left;">
+60
+</td>
+<td style="text-align:left;">
+60
+</td>
+<td style="text-align:left;">
+60
+</td>
+</tr>
+</tbody>
+</table>
+<div class="figure" style="text-align: center">
+<img src="index_files/figure-html/domain_scores-1.png" alt="Domain scores histograms" width="672" />
+<p class="caption">
+Domain scores histograms
+</p>
+</div>
+<pre><code>## 
+##  Descriptive statistics by group 
+## : Agreeability
+## : Female
+##    vars    n mean   sd median trimmed  mad min max range  skew kurtosis  se
+## X1    1 1003 44.3 6.37     45   44.54 5.93  20  60    40 -0.42     0.22 0.2
+## -------------------------------------------------------------------------------------------------------------------------------------------------- 
+## : Conscientiousness
+## : Female
+##    vars    n  mean   sd median trimmed mad min max range  skew kurtosis   se
+## X1    1 1003 39.23 8.48     40   39.38 8.9  12  60    48 -0.17    -0.45 0.27
+## -------------------------------------------------------------------------------------------------------------------------------------------------- 
+## : Extraversion
+## : Female
+##    vars    n  mean   sd median trimmed mad min max range  skew kurtosis   se
+## X1    1 1003 39.51 8.18     40   39.53 8.9  18  59    41 -0.03    -0.55 0.26
+## -------------------------------------------------------------------------------------------------------------------------------------------------- 
+## : Neg. Emotionality
+## : Female
+##    vars    n  mean   sd median trimmed   mad min max range skew kurtosis   se
+## X1    1 1003 37.61 8.76     37   37.56 10.38  13  59    46 0.03    -0.54 0.28
+## -------------------------------------------------------------------------------------------------------------------------------------------------- 
+## : Open-Mindedness
+## : Female
+##    vars    n  mean   sd median trimmed  mad min max range  skew kurtosis   se
+## X1    1 1003 43.81 7.59     44   43.95 7.41  22  60    38 -0.18    -0.36 0.24
+## -------------------------------------------------------------------------------------------------------------------------------------------------- 
+## : Agreeability
+## : Male
+##    vars   n  mean   sd median trimmed  mad min max range  skew kurtosis   se
+## X1    1 730 41.95 7.11     42    42.1 7.41  19  60    41 -0.23    -0.08 0.26
+## -------------------------------------------------------------------------------------------------------------------------------------------------- 
+## : Conscientiousness
+## : Male
+##    vars   n  mean   sd median trimmed  mad min max range  skew kurtosis  se
+## X1    1 730 38.09 8.11     38   38.12 7.41  12  60    48 -0.02     -0.2 0.3
+## -------------------------------------------------------------------------------------------------------------------------------------------------- 
+## : Extraversion
+## : Male
+##    vars   n  mean   sd median trimmed mad min max range  skew kurtosis   se
+## X1    1 730 39.71 8.47     40   39.83 8.9  17  59    42 -0.13    -0.54 0.31
+## -------------------------------------------------------------------------------------------------------------------------------------------------- 
+## : Neg. Emotionality
+## : Male
+##    vars   n  mean   sd median trimmed mad min max range skew kurtosis   se
+## X1    1 730 32.92 9.24     32   32.74 8.9  12  60    48 0.24    -0.16 0.34
+## -------------------------------------------------------------------------------------------------------------------------------------------------- 
+## : Open-Mindedness
+## : Male
+##    vars   n  mean  sd median trimmed mad min max range  skew kurtosis   se
+## X1    1 730 43.04 7.9     43   43.08 8.9  19  60    41 -0.07    -0.46 0.29</code></pre>
+<div class="figure" style="text-align: center">
+<img src="index_files/figure-html/domains_gender-1.png" alt="Density of domain scores by gender" width="672" />
+<p class="caption">
+Density of domain scores by gender
+</p>
+</div>
+</div>
+<div id="test-validity" class="section level3">
+<h3>Test validity</h3>
+<p>The <code>BFI2</code> is one of several personality inventories that aim to assess individuals on five hypothesized dimensions of personality: <em>Extraversion</em>, <em>Agreeability</em>, <em>Conscientiousness</em>, <em>Negative Emotionality</em> and <em>Open-Mindedness</em>. Definitions of <em>Extraversion</em> differ, but they usually revolve around sociability, assertiveness, proneness to experience positive emotions etc. <em>Agreeability</em> manifests in individuals for example as empathy and positive views of others <span class="citation">(Corr &amp; Matthews, 2020)</span>. An individual with high scores of <em>Consceintiousness</em> would be orderly, focused on rules and structure. <em>Negative Emotionality</em> is associated with characteristics related to dealing with negative emotions such as stress, anger, anxiety etc. <em>Open-Mindedness</em> is represented by characteristics such as unconventional behavior and openness to new experience <span class="citation">(Hřebíčková et al., 2020)</span>. The intended use for these specific scores was an <em>“estimation of basic psychometric properties of the Czech adaptation of the Big Five Inventory 2 (BFI-2)”</em> <span class="citation">(Hřebíčková et al., 2020)</span>. In general, Big Five scores could be used in a multitude of ways: by individuals as a means to self-discovery, by recruiters to select a candidate with suitable personality traits, by researchers to examine the psychological characteristics of groups and so on.The <em>Neuroticism</em>/<em>Negative Emotionality</em> scale is particularly beneficial in clinical psychology. Big Five inventories can also be utilized in career counseling (identifying personal strengths) or in candidate assessment (comparing candidate’s profile to an ideal one). Apart from the broad 5 personality dimensions, Big Five inventories generally also contain more specific subscales (e.g. <em>Sociability</em>) which allow for more precise predictions of behavior.</p>
+<p>Since the BFI2 is a self-report inventory, evidence of <em>construct validity</em> could be obtained by examining rater-concordance between the respondents and their significant others, or between respondents and experts (psychiatrists, clinical psychologists). Test content validity could be determined by experts’ ratings of the importance/suitability of the individual items.</p>
+<p>Evidence for the <strong>convergent validity</strong> of the Big Five could be obtained by correlating the domain scores with other psychological tests aiming to measure the same or at least similar constructs. One could for example compare the BFI2 results to reults of the NEO PI-R. Furthermore, one could for example expect the subscale of <em>Negative Emotionality</em> to correlate with measures of anxiety (e.g. Generalized Anxiety Disorder Assessment) and depression (Beck’s Depression Inventory). <em>Open-Mindedness</em> should presumably correlate with measures of creativity etc.</p>
+<p><strong>Discriminant validity</strong> of the BFI2 could be explored by comparing the results of its subscales to constructs, that should not be highly correlated to said subscales. Going back to the previously mentioned GAD and BDI as correlates of the <em>Negative Emotionality</em> subscale, one should make sure that the correlations aren’t extremely high, and that the tests aren’t measuring identical constructs.</p>
+<p><strong>Concurrent validity</strong> could be assessed by comparing the BFI2 results with another personality test based on the Big Five model administrated at the same time.</p>
+<p>We could obtain evidence for the BIF2’s <strong>predictive validity</strong> for example by correlating <em>Conscientiousness</em> scores of students with their future GPAs, or scores of employees with their future job performance. <em>Negative Emotionality</em> could serve as a predictor of certain clinical diagnoses (anxiety, personality disorders, mood disorders). <em>Open-Mindedness</em> could predict <em>“social and political liberalism”</em> <span class="citation">(Corr &amp; Matthews, 2020)</span>. <em>Extraversion</em> could correlate with psychological assessments of happiness or well-being <span class="citation">(Corr &amp; Matthews, 2020)</span>.</p>
+<p>An example of evidence for <strong>incremental validity</strong> of the BFI2 could be the comparison of the predictive value of <em>Conscientiousness</em> scores (in terms of future job performance) to other measures of candidate assessment, such as an assessment centre.</p>
+<p>Because the BFI2 does not measure a single construct, its items should not all intercorrelate. Items should intercorrelate within the framework of the corresponding domain and facet. Although the item correlation heat-map is a bit cluttered, it shows 5 clusters roughly representing the five BFI2 domains. There is an overlap of <em>Extraversion</em> and <em>Open-Mindedness</em> items. Looking at the domain correlations confirms this, as there is a positive correlation (<span class="math inline">\(\rho=0.29\)</span>) between <em>Extraversion</em> and <em>Open-Mindedness</em>. <em>Extraversion</em> is also negatively correlated to <em>Negative Emotionality</em> (<span class="math inline">\(\rho=-0.32\)</span>), which is the strongest inter-factor correlation. Correlation heatmaps for the respective dimensions show that there are a few ‘unexpected’ high correlations – <em>Respectfulness</em> correlates with <em>Compassion</em> (<em>Agreeability</em>), <em>Responsibility</em> correlates with <em>Organization</em> (<em>Conscientiousness</em>), <em>Depression</em> correlates with <em>Anxiety</em> (<em>Negative Emotionality</em>).</p>
+<p>In the <em>Extraversion</em> domain, the highest correlation (<span class="math inline">\(\rho=.72\)</span>) is between items <code>iEscb31r</code> (<em>“Považuji se za někoho, kdo je někdy plachý, introvertní.”</em>) and <code>iEscb16r</code> (<em>“Považuji se za někoho, kdo bývá tichý.”</em>), which is quite understandable, since they both represent the <em>Sociability</em> facet. This domain is the only one where the strongest correlations correspond exactly to the intended facets.</p>
+<p>The highest correlation (<span class="math inline">\(\rho=.62\)</span>) within the <em>Agreeability</em> domain is between items <code>iAmcp17r</code> (<em>“Považuji se za někoho, kdo s ostatními příliš nesoucítí.”</em>) and <code>iAcmp02</code> (<em>“Považuji se za někoho, kdo je soucitný, má dobré srdce.”</em>).</p>
+<p>The highest correlation (<span class="math inline">\(\rho=.71\)</span>) within the <em>Conscientiousness</em> domain is between items <code>iCprd53</code> (<em>“Považuji se za někoho, kdo je vytrvalý, pracuje, dokud úkol nedokončí.”</em>) and <code>iCprd38</code> (<em>“Považuji se za někoho, kdo je výkonný, věci dotahuje do konce.”</em>), and also between items <code>iCorg48r</code> (<em>“Považuji se za někoho, kdo zanechává nepořádek, neuklízí.”</em>) and <code>iCorg33</code> (<em>“Považuji se za někoho, kdo udržuje věci úhledné a uspořádané.”</em>).</p>
+<p>The highest correlation (<span class="math inline">\(\rho=.77\)</span>) within the <em>Negative Emotionality</em> domain is between items <code>iNdep54</code> (<em>“Považuji se za někoho, kdo má sklon být skleslý, v depresi.”</em>) and <code>iNdep39</code> (<em>“Považuji se za někoho, kdo je často smutný.”</em>).</p>
+<p>The highest correlation (<span class="math inline">\(\rho=.67\)</span>) within the <em>Open-Mindedness</em> domain is between items <code>iOcrt15</code> (<em>“Považuji se za někoho, kdo je vynalézavý, nachází důmyslné způsoby, jak něco dělat”</em>) and <code>iOcrt60</code> (<em>“Považuji se za někoho, kdo je originální, přichází s novými nápady.”</em>).</p>
+<p></br></p>
+<p><img src="index_files/figure-html/item_factor_corrplot-1.png" width="672" style="display: block; margin: auto;" /><img src="index_files/figure-html/item_factor_corrplot-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="index_files/figure-html/domain_corrplots-1.png" width="672" style="display: block; margin: auto;" /><img src="index_files/figure-html/domain_corrplots-2.png" width="672" style="display: block; margin: auto;" /><img src="index_files/figure-html/domain_corrplots-3.png" width="672" style="display: block; margin: auto;" /></p>
+<p>The dendrogram for the whole inventory is rather complex, but it indicates there are 3 large clusters: 1. <strong>Extraversion</strong> and <strong>Open-mindedness</strong>, 2. <strong>Conscientiousness</strong> and <strong>Agreeability</strong>, 3. <strong>Negative Emotionality</strong>. These results correspond to the previous correlation plots.</p>
+<p></br></p>
+<p><img src="index_files/figure-html/clust_an-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>The Kaiser-Meyer-Olkin test reulted in MSA = <span class="math inline">\(0.88\)</span>, which can be interpreted as good. The scree plot shows one large factor with an eigenvalue greater than 1, the parallel analysis suggests a 3-factor solution. I used the weighted least squares method of estimation (ordinal data) and a varimax rotation (assuming uncorrelated factors) fitting a 3- and 1-factor solutions. Based on the comparison of the fit indices for both solutions, the 3-factor solution seems to be a better option.</p>
+<p></br></p>
+<pre><code>## Kaiser-Meyer-Olkin factor adequacy
+## Call: psych::KMO(r = cor_e$rho)
+## Overall MSA =  0.88
+## MSA for each item = 
+##  iEscb01  iEasr06 iEenl11r iEscb16r  iEasr21 iEenl26r iEscb31r iEasr36r  iEenl41  iEscb46 iEasr51r  iEenl56 
+##     0.93     0.92     0.81     0.87     0.84     0.86     0.88     0.92     0.91     0.90     0.86     0.86</code></pre>
+<pre><code>## $chisq
+## [1] 9148.207
+## 
+## $p.value
+## [1] 0
+## 
+## $df
+## [1] 66</code></pre>
+<pre><code>##  [1] 5.2249822 1.3526192 1.2169333 0.7392760 0.6526941 0.6013802 0.4969507 0.4417494 0.4027221 0.3816374 0.2623106 0.2267451</code></pre>
+<p><img src="index_files/figure-html/fact_an-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre><code>## Parallel analysis suggests that the number of factors =  3  and the number of components =  NA</code></pre>
+<pre><code>## Factor Analysis using method =  wls
+## Call: fa(r = cor_e$rho, nfactors = 3, n.obs = 1733, rotate = &quot;varimax&quot;, 
+##     fm = &quot;wls&quot;)
+## Standardized loadings (pattern matrix) based upon correlation matrix
+##          item WLS1 WLS3 WLS2   h2   u2 com
+## iEscb16r    4 0.82 0.29 0.15 0.78 0.22 1.3
+## iEscb31r    7 0.70 0.31 0.10 0.60 0.40 1.4
+## iEscb46    10 0.67 0.24 0.30 0.59 0.41 1.7
+## iEscb01     1 0.65 0.22 0.28 0.55 0.45 1.6
+## iEasr21     5 0.34 0.78 0.11 0.74 0.26 1.4
+## iEasr51r   11 0.25 0.75 0.19 0.67 0.33 1.4
+## iEasr06     2 0.34 0.63 0.20 0.55 0.45 1.8
+## iEasr36r    8 0.10 0.45 0.14 0.23 0.77 1.3
+## iEenl56    12 0.29 0.12 0.69 0.58 0.42 1.4
+## iEenl11r    3 0.08 0.10 0.59 0.37 0.63 1.1
+## iEenl41     9 0.41 0.16 0.50 0.44 0.56 2.2
+## iEenl26r    6 0.09 0.30 0.45 0.31 0.69 1.8
+## 
+##                       WLS1 WLS3 WLS2
+## SS loadings           2.62 2.21 1.60
+## Proportion Var        0.22 0.18 0.13
+## Cumulative Var        0.22 0.40 0.54
+## Proportion Explained  0.41 0.34 0.25
+## Cumulative Proportion 0.41 0.75 1.00
+## 
+## Mean item complexity =  1.5
+## Test of the hypothesis that 3 factors are sufficient.
+## 
+## The degrees of freedom for the null model are  66  and the objective function was  5.3 0.3 with Chi Square of  9148.21
+## The degrees of freedom for the model are 33  and the objective function was  0.21 
+##  0.3
+## The root mean square of the residuals (RMSR) is  0.03 
+## The df corrected root mean square of the residuals is  0.04 
+##  0.3
+## The harmonic number of observations is  1733 with the empirical chi square  147.94  with prob &lt;  1.7e-16 
+##  0.3The total number of observations was  1733  with Likelihood Chi Square =  362.15  with prob &lt;  4.8e-57 
+##  0.3
+## Tucker Lewis Index of factoring reliability =  0.927
+## RMSEA index =  0.076  and the 90 % confidence intervals are  0.069 0.083 0.3
+## BIC =  116.05
+## Fit based upon off diagonal values = 1
+## Measures of factor score adequacy             
+##                                                   WLS1 WLS3 WLS2
+## Correlation of (regression) scores with factors   0.90 0.89 0.82
+## Multiple R square of scores with factors          0.81 0.79 0.67
+## Minimum correlation of possible factor scores     0.61 0.57 0.35</code></pre>
+<p><img src="index_files/figure-html/fact_an-2.png" width="672" style="display: block; margin: auto;" /></p>
+<pre><code>## Factor Analysis using method =  wls
+## Call: fa(r = cor_e$rho, nfactors = 1, n.obs = 1733, rotate = &quot;varimax&quot;, 
+##     fm = &quot;wls&quot;)
+## Standardized loadings (pattern matrix) based upon correlation matrix
+##           V WLS1   h2   u2 com
+## iEscb16r  4 0.78 0.61 0.39   1
+## iEscb46  10 0.73 0.53 0.47   1
+## iEasr21   5 0.71 0.50 0.50   1
+## iEscb31r  7 0.71 0.50 0.50   1
+## iEscb01   1 0.70 0.49 0.51   1
+## iEasr06   2 0.68 0.46 0.54   1
+## iEasr51r 11 0.68 0.46 0.54   1
+## iEenl41   9 0.59 0.35 0.65   1
+## iEenl56  12 0.54 0.30 0.70   1
+## iEenl26r  6 0.43 0.19 0.81   1
+## iEasr36r  8 0.39 0.15 0.85   1
+## iEenl11r  3 0.36 0.13 0.87   1
+## 
+##                WLS1
+## SS loadings    4.67
+## Proportion Var 0.39
+## 
+## Mean item complexity =  1
+## Test of the hypothesis that 1 factor is sufficient.
+## 
+## The degrees of freedom for the null model are  66  and the objective function was  5.3 0.3 with Chi Square of  9148.21
+## The degrees of freedom for the model are 54  and the objective function was  1.28 
+##  0.3
+## The root mean square of the residuals (RMSR) is  0.09 
+## The df corrected root mean square of the residuals is  0.1 
+##  0.3
+## The harmonic number of observations is  1733 with the empirical chi square  1911.27  with prob &lt;  0 
+##  0.3The total number of observations was  1733  with Likelihood Chi Square =  2207.63  with prob &lt;  0 
+##  0.3
+## Tucker Lewis Index of factoring reliability =  0.71
+## RMSEA index =  0.152  and the 90 % confidence intervals are  0.146 0.157 0.3
+## BIC =  1804.92
+## Fit based upon off diagonal values = 0.95
+## Measures of factor score adequacy             
+##                                                   WLS1
+## Correlation of (regression) scores with factors   0.95
+## Multiple R square of scores with factors          0.90
+## Minimum correlation of possible factor scores     0.80</code></pre>
+<p><img src="index_files/figure-html/fact_an-3.png" width="672" style="display: block; margin: auto;" /></p>
+<pre><code>## $TLI
+## [1] 0.7100668
+## 
+## $RMSEA
+##      RMSEA      lower      upper confidence 
+##  0.1517001  0.1463678  0.1571907  0.9000000 
+## 
+## $BIC
+## [1] 1804.915</code></pre>
+<pre><code>## $TLI
+## [1] 0.9274325
+## 
+## $RMSEA
+##      RMSEA      lower      upper confidence 
+## 0.07586292 0.06894418 0.08303590 0.90000000 
+## 
+## $BIC
+## [1] 116.051</code></pre>
+</div>
+<div id="test-reliability" class="section level3">
+<h3>Test reliability</h3>
+<p>I computed estimates of split-half reliability for each domain separately. The first-second and even-odd methods separate the domains so that the domain facets are equally represented in both groups – for <strong>Agreeability</strong> and <strong>Open-Mindedness</strong> these methods also yield equal estimates. Relatively mild differences between the estimates of the first two methods can be found in the other domains – lower first-second estimates could be explained by respondents being more tired while answering the second half of items. All of the average split-half estimates are higher than <span class="math inline">\(0.8\)</span>, which can be interpreted as an overall good split-half reliability of the questionnaire with regards to its domains. <strong>Agreeability</strong> has the lowest split-half reliability estimates, whereas <strong>Negative Emotionality</strong> and <strong>Extraversion</strong> seem to yield the highest estimates.</p>
+<p></br></p>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+Split-half Estimates
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Extraversion
+</th>
+<th style="text-align:right;">
+Agreeability
+</th>
+<th style="text-align:right;">
+Conscientiousness
+</th>
+<th style="text-align:right;">
+Neg. Emotionality
+</th>
+<th style="text-align:right;">
+Open-Mindedness
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+First-second
+</td>
+<td style="text-align:right;">
+0.8987
+</td>
+<td style="text-align:right;">
+0.7978
+</td>
+<td style="text-align:right;">
+0.8781
+</td>
+<td style="text-align:right;">
+0.8829
+</td>
+<td style="text-align:right;">
+0.8656
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Even-odd
+</td>
+<td style="text-align:right;">
+0.8919
+</td>
+<td style="text-align:right;">
+0.7978
+</td>
+<td style="text-align:right;">
+0.8873
+</td>
+<td style="text-align:right;">
+0.9183
+</td>
+<td style="text-align:right;">
+0.8656
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Average
+</td>
+<td style="text-align:right;">
+0.8561
+</td>
+<td style="text-align:right;">
+0.8129
+</td>
+<td style="text-align:right;">
+0.8736
+</td>
+<td style="text-align:right;">
+0.8867
+</td>
+<td style="text-align:right;">
+0.8288
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Worst
+</td>
+<td style="text-align:right;">
+0.7502
+</td>
+<td style="text-align:right;">
+0.6741
+</td>
+<td style="text-align:right;">
+0.8002
+</td>
+<td style="text-align:right;">
+0.8305
+</td>
+<td style="text-align:right;">
+0.6419
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Best
+</td>
+<td style="text-align:right;">
+0.9092
+</td>
+<td style="text-align:right;">
+0.8670
+</td>
+<td style="text-align:right;">
+0.9151
+</td>
+<td style="text-align:right;">
+0.9195
+</td>
+<td style="text-align:right;">
+0.8869
+</td>
+</tr>
+</tbody>
+</table>
+<p>The next data frame includes the confidence intervals for Cronbach’s <span class="math inline">\(\alpha\)</span> and McDonald’s <span class="math inline">\(\omega\)</span> (total). Since the estimates for all domains <span class="math inline">\(&gt; 0.75\)</span>, we can interpret their reliability as excellent. The average <span class="math inline">\(\alpha\)</span> value (<span class="math inline">\(\alpha = 0.85\)</span>) is slightly lower than the average <span class="math inline">\(\omega\)</span> (<span class="math inline">\(\omega = 0.88\)</span>).</p>
+</br>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+Internal Consistency Estimates
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+LCL
+</th>
+<th style="text-align:right;">
+ALPHA
+</th>
+<th style="text-align:right;">
+UCL
+</th>
+<th style="text-align:right;">
+omega
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Extraversion
+</td>
+<td style="text-align:right;">
+0.8482107
+</td>
+<td style="text-align:right;">
+0.8582687
+</td>
+<td style="text-align:right;">
+0.8679305
+</td>
+<td style="text-align:right;">
+0.8883436
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Agreeability
+</td>
+<td style="text-align:right;">
+0.7928538
+</td>
+<td style="text-align:right;">
+0.8065799
+</td>
+<td style="text-align:right;">
+0.8197654
+</td>
+<td style="text-align:right;">
+0.8444697
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Conscientiousness
+</td>
+<td style="text-align:right;">
+0.8642806
+</td>
+<td style="text-align:right;">
+0.8732737
+</td>
+<td style="text-align:right;">
+0.8819127
+</td>
+<td style="text-align:right;">
+0.8964217
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Neg. Emotionality
+</td>
+<td style="text-align:right;">
+0.8795460
+</td>
+<td style="text-align:right;">
+0.8875276
+</td>
+<td style="text-align:right;">
+0.8951948
+</td>
+<td style="text-align:right;">
+0.9061431
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Open-Mindedness
+</td>
+<td style="text-align:right;">
+0.8168670
+</td>
+<td style="text-align:right;">
+0.8290019
+</td>
+<td style="text-align:right;">
+0.8406589
+</td>
+<td style="text-align:right;">
+0.8738068
+</td>
+</tr>
+</tbody>
+</table>
+<p>One example of another reliability estimate is <em>test-retest reliability</em>. For <em>test-retest reliability</em>, we would need to collect data with the same inventory from the same respondent sample after a certain period of time (3 months are usually recommended). The estimate of reliability would correspond to the correlation between the respondent scores from the first and second administration. Theoretically, only the measurement error should change. A second example could be <em>parallel forms</em> reliability, which, similarly to <em>test-retest</em> requires another administration on the same subjects. As the name suggests, this method of estimating reliability relies on the administration of a parallel form of the inventory. Both administrations should have the same conditions, the test/inventory forms should have the same kinds of items of equal difficulty. In this specific case, one could use another but very similar inventory based on the Big Five model of personality. Lastly, we could estimate <em>inter-rater</em> reliability if we had ratings from independent raters – significant others, clinical psychologists, psychiatrist etc. – which we could compare with the test results.</p>
+<p>If we doubled the original number of items (<span class="math inline">\(12\)</span>), reliability would reach <span class="math inline">\(0.92\)</span>, meaning it would increase by approximately <span class="math inline">\(0.6\)</span>. In order to get a reliability of <span class="math inline">\(0.9\)</span>, we would have to add six more items, resulting in <span class="math inline">\(18\)</span> items overall.</p>
+<p></br></p>
+<p></br></p>
+</div>
+<div id="item-analysis" class="section level3">
+<h3>Item analysis</h3>
+<div id="extraversion" class="section level4">
+<h4>Extraversion</h4>
+<p>Overall, it can be stated that the difficulty (popularity) of all the <strong>Extraversion</strong> items does not exceed the range of <span class="math inline">\([0.4, 0.7]\)</span>, which can be interpreted as acceptable. Similarly, the upper-lower index (ULI) never drops below the <span class="math inline">\(0.2\)</span> threshold, which means that all items differentiate <em>relatively</em> well between respondents with a high and low <strong>Extraversion</strong> score.</p>
+<p>Item number 11 (<code>iEenl11r</code>) has the highest difficulty and a low value of ULI. Furthermore, the <code>Alpha.drop</code> value for this item indicates that it lowers the reliability (estimated with Cronbach’s <span class="math inline">\(\alpha\)</span>) of the domain. The wording of this item is: <em>“Považuji se za někoho, kdo zřídkakdy pociťuje vzrušení a nadšení pro věc.”</em> Since this item is already reverse-coded, one could conclude that most respondents disagreed with this statement, and that it does not differentiate between introverts and extraverts as much as some of the other items. Perhaps the wording of the item invokes a rather negative self-image that most people, even introverts, are reluctant to accept (social desirability). This item might also be better at targeting neurotic traits (depression, anxiety…) than introversion.</p>
+<p>In contrast, item number 31 (<em>“Považuji se za někoho, kdo je někdy plachý, introvertní.”</em>) has the lowest difficulty (popularity). Again, this is a reverse-coded item, so most respondents agreed with this statement. I would hypothesize that the wording is too vague, maybe it would be better to avoid words such as <em>sometimes</em> that leave too much space for subjective interpretation.</p>
+<p>Item 16 (<em>“Považuji se za někoho, kdo bývá tichý.”</em>) is the best at discriminating between extraverts and introverts, item 26 (<em>“Považuji se za někoho, kdo je méně činorodý než ostatní.”</em>) is the worst. Item 26 could be problematic due to social desirability. Lastly, item 36 (<em>“Považuji se za někoho, kdo pokládá za obtížné ovlivňovat druhé.”</em>) also seems to decrease the reliability of this scale. Perhaps this item has more to do with traits like machiavellianism and narcissism than extraversion.</p>
+<p></br></p>
+<div id="htmlwidget-1c7e4cf6fa485b015a9e" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1c7e4cf6fa485b015a9e">{"x":{"filter":"none","vertical":false,"caption":"<caption style=\"caption-side: top; text-align: left; color:gray; font-size:100% ;\">Traditional Item Analysis: Extraversion<\/caption>","data":[["iEscb01","iEasr06","iEenl11r","iEscb16r","iEasr21","iEenl26r","iEscb31r","iEasr36r","iEenl41","iEscb46","iEasr51r","iEenl56"],[3.6197,3.5909,3.6411,2.9388,2.9504,3.4495,2.7069,3.2002,3.4178,3.5326,2.9711,3.573],[1.0519,1.052,1.1097,1.3112,1.1883,0.9215,1.2699,1.0356,1.0295,1.1386,1.1455,0.9533],[0.6549,0.6477,0.6603,0.4847,0.4876,0.6124,0.4267,0.5501,0.6044,0.6332,0.4928,0.6432],[0.5972,0.6006,0.3056,0.6689,0.6233,0.3966,0.6029,0.3501,0.5172,0.6296,0.6084,0.4912],[0.6756,0.6785,0.4243,0.7515,0.7069,0.4881,0.6958,0.4572,0.6051,0.7088,0.6916,0.5759],[0.3899,0.396,0.2543,0.5771,0.4731,0.2474,0.5078,0.2608,0.341,0.4575,0.4424,0.2964],[0.3899,0.396,0.2543,0.5771,0.4731,0.2474,0.5078,0.2608,0.341,0.4575,0.4424,0.2964],[0.8432,0.843,0.8624,0.837,0.8408,0.8555,0.8423,0.8588,0.8485,0.8405,0.842,0.8502]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Mean<\/th>\n      <th>SD<\/th>\n      <th>Difficulty<\/th>\n      <th>RIR<\/th>\n      <th>RIT<\/th>\n      <th>ULI<\/th>\n      <th>gULI<\/th>\n      <th>Alpha.drop<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":12,"lengthMenu":12,"paging":false,"dom":"t","columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'background-color':isNaN(parseFloat(value)) ? '' : value <= 0.1 ? \"blue\" : value <= 0.9 ? null : \"red\"});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'background-color':isNaN(parseFloat(value)) ? '' : value <= 0.2 ? \"blue\" : null});\nvar value=data[8]; $(this.api().cell(row, 8).node()).css({'background-color':isNaN(parseFloat(value)) ? '' : value <= 0.8583 ? null : \"pink\"});\nvar value=data[6]; $(this.api().cell(row, 6).node()).css({'background-color':isNaN(parseFloat(value)) ? '' : value <= 0.2 ? \"pink\" : null});\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'color':value == 0.4267 ? \"blue\" : value == 0.6603 ? \"red\" : null});\nvar value=data[6]; $(this.api().cell(row, 6).node()).css({'color':value == 0.2474 ? \"blue\" : value == 0.5771 ? \"red\" : null});\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+<p><img src="index_files/figure-html/it_an_extraversion-2.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="agreeability" class="section level4">
+<h4>Agreeability</h4>
+<p>The difficulty and ULI of all <strong>Agreeability</strong> items are in an acceptable range and none of the items decrease the scale’s reliability.</p>
+<p>Item 42 (<em>“Považuji se za někoho, kdo je vůči záměrům ostatních nedůvěřivý.”</em>) has the lowest difficulty (popularity) and a relatively low ULI. Since it is a reverse-coded item, most respondents agreed with this statement. One possible explanation could be the negative connotation of the word <em>důvěřivý</em>. Hypothetically, this effect could also be explained sociologically (lower trust in post-communist countries).</p>
+<p>Item 52 (<em>“Považuji se za někoho, kdo je k ostatním slušný a zdvořilý.”</em>) has the highest popularity and the lowest ability to discriminate between agreeable and non-agreeable respondents. This could be explained by social desirability.</p>
+<p>Item 47 (<em>“Považuji se za někoho, kdo dokáže být chladný a bezcitný.”</em>) has the highest ULI and thus, it is best at differentiating between agreeable and non-agreeable respondents. </br></p>
+<div id="htmlwidget-93ec682ae4d31b6aa319" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-93ec682ae4d31b6aa319">{"x":{"filter":"none","vertical":false,"caption":"<caption style=\"caption-side: top; text-align: left; color:gray; font-size:100% ;\">Traditional Item Analysis: Agreeability<\/caption>","data":[["iAcmp02","iArsp07","iAtrs12r","iAcmp17r","iArsp22r","iAtrs27","iAcmp32","iArsp37r","iAtrs42r","iAcmp47r","iArsp52","iAtrs57"],[4.1021,4.0514,3.0029,4.015,3.9879,3.813,3.9371,3.157,2.8286,3.2937,4.1985,2.9256],[0.8334,0.815,1.1134,0.9736,0.9938,1.0582,0.7999,1.1562,1.0081,1.3147,0.7513,1.0339],[0.7755,0.7628,0.5007,0.7538,0.747,0.7033,0.7343,0.5392,0.4572,0.5734,0.7996,0.4814],[0.4897,0.4729,0.4354,0.5382,0.4779,0.3481,0.4909,0.5385,0.3167,0.52,0.4581,0.4295],[0.5802,0.5635,0.5636,0.6361,0.5869,0.4814,0.5778,0.6539,0.4472,0.6542,0.5434,0.5496],[0.2517,0.2396,0.3492,0.3189,0.3215,0.2673,0.2491,0.4346,0.2543,0.4935,0.2223,0.3076],[0.2517,0.2396,0.3492,0.3189,0.3215,0.2673,0.2491,0.4346,0.2543,0.4935,0.2223,0.3076],[0.7904,0.7919,0.7947,0.7849,0.7903,0.8026,0.7908,0.784,0.8049,0.787,0.7937,0.7948]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Mean<\/th>\n      <th>SD<\/th>\n      <th>Difficulty<\/th>\n      <th>RIR<\/th>\n      <th>RIT<\/th>\n      <th>ULI<\/th>\n      <th>gULI<\/th>\n      <th>Alpha.drop<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":12,"lengthMenu":12,"paging":false,"dom":"t","columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'background-color':isNaN(parseFloat(value)) ? '' : value <= 0.1 ? \"blue\" : value <= 0.9 ? null : \"red\"});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'background-color':isNaN(parseFloat(value)) ? '' : value <= 0.2 ? \"blue\" : null});\nvar value=data[8]; $(this.api().cell(row, 8).node()).css({'background-color':isNaN(parseFloat(value)) ? '' : value <= 0.8066 ? null : \"pink\"});\nvar value=data[6]; $(this.api().cell(row, 6).node()).css({'background-color':isNaN(parseFloat(value)) ? '' : value <= 0.2 ? \"pink\" : null});\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'color':value == 0.4572 ? \"blue\" : value == 0.7996 ? \"red\" : null});\nvar value=data[6]; $(this.api().cell(row, 6).node()).css({'color':value == 0.2223 ? \"blue\" : value == 0.4935 ? \"red\" : null});\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+<p><img src="index_files/figure-html/it_an_agreeability-2.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="conscientiousness" class="section level4">
+<h4>Conscientiousness</h4>
+<p>None of the items seem to be extremely faulty.</p>
+<p>Item 8 (<em>“Považuji se za někoho, kdo má sklon být líný.”</em>) has the lowest difficulty (popularity). As it is a reverse-coded item, most respondents agreed with the original statement. Perhaps this could be explained sociologically – either by the age range of the sample (<span class="math inline">\(15-26\)</span>) or by an increased societal pressure on productivity.</p>
+<p>Item 43 (<em>“Považuji se za někoho, kdo je důvěryhodný, vždy se na něj dá spolehnout.”</em>) has the highest popularity and the lowest ability to differentiate between conscientious and non-conscientious respondents, probably due to social desirability.</p>
+<p>Item 18 (<em>“Považuji se za někoho, kdo je systematický, udržuje ve věcech pořádek.”</em>) has the highest ULI and is therefore the best at discriminating between conscientious and non-conscientious respondents.</p>
+<p></br></p>
+<div id="htmlwidget-0ec010bedbedd9df74f9" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0ec010bedbedd9df74f9">{"x":{"filter":"none","vertical":false,"caption":"<caption style=\"caption-side: top; text-align: left; color:gray; font-size:100% ;\">Traditional Item Analysis: Conscientiousness<\/caption>","data":[["iCorg03r","iCprd08r","iCrsp13","iCorg18","iCprd23r","iCrsp28r","iCorg33","iCprd38","iCrsp43","iCorg48r","iCprd53","iCrsp58r"],[3.0525,2.3439,3.6284,3.3168,2.7548,3.1956,3.1985,3.5776,3.8719,3.3422,3.5251,2.9435],[1.1297,1.1309,0.9474,1.1461,1.17,1.006,1.1598,0.9584,0.8575,1.2148,1.0144,1.1122],[0.5131,0.336,0.6571,0.5792,0.4387,0.5489,0.5496,0.6444,0.718,0.5855,0.6313,0.4859],[0.4884,0.5541,0.4712,0.7083,0.5387,0.5208,0.6767,0.5849,0.5093,0.5952,0.5839,0.5195],[0.5881,0.6445,0.5572,0.7734,0.6344,0.6059,0.7485,0.6579,0.5834,0.6851,0.6612,0.6135],[0.3661,0.4064,0.2838,0.5022,0.4185,0.3293,0.4905,0.3367,0.2695,0.4766,0.3635,0.3826],[0.3661,0.4064,0.2838,0.5022,0.4185,0.3293,0.4905,0.3367,0.2695,0.4766,0.3635,0.3826],[0.868,0.8638,0.8684,0.8536,0.865,0.8657,0.8557,0.8623,0.8667,0.8613,0.8621,0.866]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Mean<\/th>\n      <th>SD<\/th>\n      <th>Difficulty<\/th>\n      <th>RIR<\/th>\n      <th>RIT<\/th>\n      <th>ULI<\/th>\n      <th>gULI<\/th>\n      <th>Alpha.drop<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":12,"lengthMenu":12,"paging":false,"dom":"t","columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'background-color':isNaN(parseFloat(value)) ? '' : value <= 0.1 ? \"blue\" : value <= 0.9 ? null : \"red\"});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'background-color':isNaN(parseFloat(value)) ? '' : value <= 0.2 ? \"blue\" : null});\nvar value=data[8]; $(this.api().cell(row, 8).node()).css({'background-color':isNaN(parseFloat(value)) ? '' : value <= 0.8733 ? null : \"pink\"});\nvar value=data[6]; $(this.api().cell(row, 6).node()).css({'background-color':isNaN(parseFloat(value)) ? '' : value <= 0.2 ? \"pink\" : null});\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'color':value == 0.336 ? \"blue\" : value == 0.718 ? \"red\" : null});\nvar value=data[6]; $(this.api().cell(row, 6).node()).css({'color':value == 0.2695 ? \"blue\" : value == 0.5022 ? \"red\" : null});\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+<p><img src="index_files/figure-html/it_an_conscientiousness-2.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="negative-emotionality" class="section level4">
+<h4>Negative Emotionality</h4>
+<p>All of the items seem to function relatively well.</p>
+<p>Item 9 (<em>“Považuji se za někoho, kdo zůstává optimistický i po nějakém nezdaru.”</em>) has the lowest difficulty, probably due to social desirability.</p>
+<p>Item 34 (<em>“Považuji se za někoho, kdo si hodně dělá starosti.”</em>) has the highest difficulty – perhaps because of the vague phrasing.</p>
+<p>Item 29 (<em>“Považuji se za někoho, kdo je emočně vyrovnaný, jen tak něco ho nerozhodí.”</em>) has the highest ULI, it is best at discriminating between respondents with high and low <em>Negative Emotionality</em> scores.</p>
+<p>Item 44 (<em>“Považuji se za někoho, kdo drží své emoce pod kontrolou.”</em>) has the lowest ULI, maybe because it relies too heavily on individual understanding of <em>control</em>.</p>
+<p></br></p>
+<div id="htmlwidget-58fc0b1717b5a74350d4" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-58fc0b1717b5a74350d4">{"x":{"filter":"none","vertical":false,"caption":"<caption style=\"caption-side: top; text-align: left; color:gray; font-size:100% ;\">Traditional Item Analysis: Neg. Emotionality<\/caption>","data":[["iNanx04r","iNdep09r","iNemt14","iNanx19","iNdep24r","iNemt29r","iNanx34","iNdep39","iNemt44r","iNanx49r","iNdep54","iNemt59"],[3.0635,2.6803,3.0173,3.0681,2.8892,2.9729,3.5482,2.7963,2.6838,3.2931,2.7455,2.8759],[1.1415,1.1237,1.2544,1.0697,1.1349,1.1795,1.0972,1.2093,1.1029,1.1217,1.2343,1.1659],[0.5159,0.4201,0.5043,0.517,0.4723,0.4932,0.637,0.4491,0.4209,0.5733,0.4364,0.469],[0.6377,0.53,0.6083,0.5485,0.4979,0.7309,0.546,0.675,0.4816,0.5407,0.6689,0.6134],[0.708,0.6145,0.6901,0.6267,0.5872,0.7874,0.6265,0.7429,0.5705,0.6236,0.7393,0.6889],[0.4428,0.3804,0.49,0.3653,0.3666,0.5251,0.3782,0.5035,0.3479,0.3752,0.5204,0.4523],[0.4428,0.3804,0.49,0.3653,0.3666,0.5251,0.3782,0.5035,0.3479,0.3752,0.5204,0.4523],[0.8759,0.8818,0.8776,0.8808,0.8835,0.8704,0.8809,0.8736,0.8843,0.8812,0.8739,0.8773]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Mean<\/th>\n      <th>SD<\/th>\n      <th>Difficulty<\/th>\n      <th>RIR<\/th>\n      <th>RIT<\/th>\n      <th>ULI<\/th>\n      <th>gULI<\/th>\n      <th>Alpha.drop<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":12,"lengthMenu":12,"paging":false,"dom":"t","columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'background-color':isNaN(parseFloat(value)) ? '' : value <= 0.1 ? \"blue\" : value <= 0.9 ? null : \"red\"});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'background-color':isNaN(parseFloat(value)) ? '' : value <= 0.2 ? \"blue\" : null});\nvar value=data[8]; $(this.api().cell(row, 8).node()).css({'background-color':isNaN(parseFloat(value)) ? '' : value <= 0.8875 ? null : \"pink\"});\nvar value=data[6]; $(this.api().cell(row, 6).node()).css({'background-color':isNaN(parseFloat(value)) ? '' : value <= 0.2 ? \"pink\" : null});\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'color':value == 0.4201 ? \"blue\" : value == 0.637 ? \"red\" : null});\nvar value=data[6]; $(this.api().cell(row, 6).node()).css({'color':value == 0.3479 ? \"blue\" : value == 0.5251 ? \"red\" : null});\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+<p><img src="index_files/figure-html/it_an_neg.emotionality-2.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="open-mindedness" class="section level4">
+<h4>Open-Mindedness</h4>
+<p>Again, all of the items seem to function relatively well.</p>
+<p>Item 5 (<em>“Považuji se za někoho, kdo se o umění příliš nezajímá.”</em>) has the lowest difficulty (popularity), maybe due to social desirability.</p>
+<p>Item 40 (<em>“Považuji se za někoho, kdo je přemýšlivý, nad věcmi uvažuje do hloubky.”</em>) has the highest difficulty and the lowest ULI – again, I would say the phrasing is quite vague and general enough to apply to most people.</p>
+<p>Item 20 (<em>“Považuji se za někoho, kdo je fascinován uměním, hudbou a literaturou.”</em>) has the highest ULI, so it is the best at differentiating between open-minded and non-open-minded respondents.</p>
+<p></br></p>
+<div id="htmlwidget-1e5482d2131fbae00426" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1e5482d2131fbae00426">{"x":{"filter":"none","vertical":false,"caption":"<caption style=\"caption-side: top; text-align: left; color:gray; font-size:100% ;\">Traditional Item Analysis: Open-Mindedness<\/caption>","data":[["iOaes05r","iOint10","iOcrt15","iOaes20","iOint25r","iOcrt30r","iOaes35","iOint40","iOcrt45r","iOaes50r","iOint55r","iOcrt60"],[3.2129,3.9394,3.5482,3.3953,3.5563,3.562,3.7334,4.0017,3.9123,3.6497,3.5199,3.4524],[1.3016,0.9571,0.9681,1.2304,1.2105,1.1153,1.058,0.9083,0.995,1.237,1.0737,0.9717],[0.5532,0.7349,0.637,0.5988,0.6391,0.6405,0.6834,0.7504,0.7281,0.6624,0.63,0.6131],[0.5558,0.4045,0.4215,0.5905,0.4264,0.53,0.5726,0.3654,0.4503,0.4641,0.5617,0.4816],[0.6667,0.5055,0.5218,0.6893,0.5503,0.6298,0.661,0.4651,0.55,0.585,0.6531,0.5752],[0.4827,0.2669,0.2682,0.4848,0.3744,0.386,0.3891,0.24,0.3068,0.406,0.3925,0.302],[0.4827,0.2669,0.2682,0.4848,0.3744,0.386,0.3891,0.24,0.3068,0.406,0.3925,0.302],[0.8103,0.8223,0.8211,0.8069,0.8218,0.8126,0.8094,0.8248,0.819,0.8186,0.8101,0.8168]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Mean<\/th>\n      <th>SD<\/th>\n      <th>Difficulty<\/th>\n      <th>RIR<\/th>\n      <th>RIT<\/th>\n      <th>ULI<\/th>\n      <th>gULI<\/th>\n      <th>Alpha.drop<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":12,"lengthMenu":12,"paging":false,"dom":"t","columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'background-color':isNaN(parseFloat(value)) ? '' : value <= 0.1 ? \"blue\" : value <= 0.9 ? null : \"red\"});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'background-color':isNaN(parseFloat(value)) ? '' : value <= 0.2 ? \"blue\" : null});\nvar value=data[8]; $(this.api().cell(row, 8).node()).css({'background-color':isNaN(parseFloat(value)) ? '' : value <= 0.829 ? null : \"pink\"});\nvar value=data[6]; $(this.api().cell(row, 6).node()).css({'background-color':isNaN(parseFloat(value)) ? '' : value <= 0.2 ? \"pink\" : null});\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'color':value == 0.5532 ? \"blue\" : value == 0.7504 ? \"red\" : null});\nvar value=data[6]; $(this.api().cell(row, 6).node()).css({'color':value == 0.24 ? \"blue\" : value == 0.4848 ? \"red\" : null});\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+<p><img src="index_files/figure-html/it_an_open_mindedness-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Item <code>iCprd08r</code> is the least difficult/popular item of the inventory. Most respondents tended to agree with the original statement (<em>“Považuji se za někoho, kdo má sklon být líný.”</em>). Nonetheless, the slopes of the response curves indicate that respondents with a higher overall <strong>Conscientiousness</strong> score disagreed with the statement more often than respondents with lower <strong>Conscientiousness</strong> scores. The popularity of this item could be attributed to the low age distribution of the respondent sample. As we can see from the response curve for item <code>iArsp52</code> (<em>“Považuji se za někoho, kdo je k ostatním slušný a zdvořilý.”</em>), answer 5 (<em>“Agree strongly”</em>) is selected more often by respondents with a higher total score (higher agreeability). However, it is also the most difficult/popular item with a low discrimination, which can be seen from the high option selection proportions for answers 4 (<em>“Agree a little.”</em>) and 5 (<em>“Agree strongly”</em>) even in groups with low/lower total scores. Item <code>iEscb16r</code> (<em>“Považuji se za někoho, kdo bývá tichý.”</em>) is reversed, so respondents with higher total scores (higher extraversion) select answers 1 (<em>“Disagree strongly”</em>) and 2 (<em>“Disagree a little”</em>) more often than respondents with lower total scores and vice versa.</p>
+<p></br></p>
+<img src="index_files/figure-html/distractor_analysis-1.png" width="672" style="display: block; margin: auto;" />
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+Response proportions for item iCprd08r
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+response
+</th>
+<th style="text-align:right;">
+Group1
+</th>
+<th style="text-align:right;">
+Group2
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:right;">
+0.313
+</td>
+<td style="text-align:right;">
+0.146
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:right;">
+0.418
+</td>
+<td style="text-align:right;">
+0.280
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:right;">
+0.169
+</td>
+<td style="text-align:right;">
+0.225
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:right;">
+0.093
+</td>
+<td style="text-align:right;">
+0.237
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:right;">
+0.007
+</td>
+<td style="text-align:right;">
+0.112
+</td>
+</tr>
+</tbody>
+</table>
+<img src="index_files/figure-html/distractor_analysis-2.png" width="672" style="display: block; margin: auto;" />
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+Response proportions for item iArsp52
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+response
+</th>
+<th style="text-align:right;">
+Group1
+</th>
+<th style="text-align:right;">
+Group2
+</th>
+<th style="text-align:right;">
+Group3
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:right;">
+0.007
+</td>
+<td style="text-align:right;">
+0.006
+</td>
+<td style="text-align:right;">
+0.004
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:right;">
+0.047
+</td>
+<td style="text-align:right;">
+0.010
+</td>
+<td style="text-align:right;">
+0.004
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:right;">
+0.176
+</td>
+<td style="text-align:right;">
+0.080
+</td>
+<td style="text-align:right;">
+0.018
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:right;">
+0.720
+</td>
+<td style="text-align:right;">
+0.570
+</td>
+<td style="text-align:right;">
+0.200
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:right;">
+0.050
+</td>
+<td style="text-align:right;">
+0.333
+</td>
+<td style="text-align:right;">
+0.775
+</td>
+</tr>
+</tbody>
+</table>
+<img src="index_files/figure-html/distractor_analysis-3.png" width="672" style="display: block; margin: auto;" />
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+Response proportions for item iEscb16r
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+response
+</th>
+<th style="text-align:right;">
+Group1
+</th>
+<th style="text-align:right;">
+Group2
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:right;">
+0.205
+</td>
+<td style="text-align:right;">
+0.069
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:right;">
+0.373
+</td>
+<td style="text-align:right;">
+0.146
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:right;">
+0.220
+</td>
+<td style="text-align:right;">
+0.145
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:right;">
+0.192
+</td>
+<td style="text-align:right;">
+0.267
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:right;">
+0.010
+</td>
+<td style="text-align:right;">
+0.373
+</td>
+</tr>
+</tbody>
+</table>
+<img src="index_files/figure-html/distractor_analysis-4.png" width="672" style="display: block; margin: auto;" />
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+Response proportions for item iEenl11r
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+response
+</th>
+<th style="text-align:right;">
+Group1
+</th>
+<th style="text-align:right;">
+Group2
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:right;">
+0.043
+</td>
+<td style="text-align:right;">
+0.043
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:right;">
+0.191
+</td>
+<td style="text-align:right;">
+0.083
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:right;">
+0.197
+</td>
+<td style="text-align:right;">
+0.097
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:right;">
+0.494
+</td>
+<td style="text-align:right;">
+0.323
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:right;">
+0.076
+</td>
+<td style="text-align:right;">
+0.454
+</td>
+</tr>
+</tbody>
+</table>
+<p>Below I’m working with the reversed item <code>iEscb16r</code> (<em>“Považuji se za někoho, kdo bývá tichý.”</em>). I decided to choose a cumulative logit model, since the <code>BFI2</code> consists of Likert scale items. A respondent with a Z-score of <span class="math inline">\(-1.35\)</span> (below average extraversion) has a <span class="math inline">\(0.5\)</span> probability of answering at least <em>“Agree a little”</em>, respondent with a Z-score of <span class="math inline">\(-0.24\)</span> (below average extraversion) has a <span class="math inline">\(0.5\)</span> probability of answering at least <em>“Neutral; no opinion”</em>, respondent with a Z-score of <span class="math inline">\(0.41\)</span> (above average extraversion) has a <span class="math inline">\(0.5\)</span> probability of answering at least <em>“Disagree a little”</em>, and respondent with a Z-score of <span class="math inline">\(1.34\)</span> (above average extraversion) has a <span class="math inline">\(0.5\)</span> probability of answering at least <em>“Disagree strongly”</em>. With each unit increase of the Z-score, the log-odds of choosing the given answer or a lower one, increases by the ratio of <span class="math inline">\(2.18\)</span>. </br></p>
+<pre class="r"><code># recoding data
+BFI2_e_rec &lt;- BFI2_e - 1
+
+# z-score
+zscore &lt;- scale(rowSums(BFI2_e_rec))
+
+# create a factor variable
+maxval &lt;- max(BFI2_e_rec[, 4])
+BFI2_e_rec[, 4] &lt;- ordered(factor(BFI2_e_rec[, 4], levels = 0:maxval))
+
+# cumulative logit model for item 16
+fit.cum &lt;- vglm(BFI2_e_rec[, 4] ~ zscore,
+                family = cumulative(reverse = TRUE, parallel = TRUE))
+
+# coefficients and SE
+coef(fit.cum)</code></pre>
+<pre><code>## (Intercept):1 (Intercept):2 (Intercept):3 (Intercept):4        zscore 
+##     2.9367530     0.5143056    -0.8832174    -2.9103725     2.1761007</code></pre>
+<pre class="r"><code>sqrt(diag(vcov(fit.cum)))</code></pre>
+<pre><code>## (Intercept):1 (Intercept):2 (Intercept):3 (Intercept):4        zscore 
+##    0.09702355    0.06347559    0.06573433    0.09550154    0.06895762</code></pre>
+<pre class="r"><code># IRT parametrization
+c(-coef(fit.cum)[1:4] / coef(fit.cum)[5], coef(fit.cum)[5])</code></pre>
+<pre><code>## (Intercept):1 (Intercept):2 (Intercept):3 (Intercept):4        zscore 
+##    -1.3495483    -0.2363427     0.4058716     1.3374255     2.1761007</code></pre>
+<pre class="r"><code>msm::deltamethod(
+  list(~ -x1 / x5, ~ -x2 / x5, ~ -x3 / x5, ~ -x4 / x5, ~ x5),
+  mean = coef(fit.cum), cov = vcov(fit.cum)
+)</code></pre>
+<pre><code>## [1] 0.04226064 0.02915947 0.02965357 0.04141153 0.06895762</code></pre>
+<p></br></p>
+</div>
+</div>
+<div id="item-response-theory-models" class="section level3">
+<h3>Item response theory models</h3>
+<div id="rasch-model" class="section level4">
+<h4>Rasch model</h4>
+<p>Model equation: <span class="math display">\[
+\pi_{pi}=P(Y_{pi}=1|\theta_p)=\frac{exp(\theta_p-b_i)}{1+\exp(\theta_p-b_i)}
+\]</span></p>
+<ul>
+<li><p><span class="math inline">\(\theta_p\)</span> – trait of person <span class="math inline">\(p\)</span></p></li>
+<li><p><span class="math inline">\(\beta_i\)</span> – difficulty of item <span class="math inline">\(i\)</span>, ability needed so that the probability of endorsing a given item is <span class="math inline">\(50%\)</span></p></li>
+</ul>
+<p>For the sake of simplicity I’m working with the <strong>Extraversion</strong> domain, which I binarized in order to fit the Rasch and 2PL model. Given the <code>coef()</code> output with classical intercept/slope parametrization, the ability variance is estimated at <span class="math inline">\(2.0\)</span> with a confidence interval of (<span class="math inline">\(1.8\)</span>, <span class="math inline">\(2.2\)</span>). With the IRT parametrization, we could say that the difficulty of item <code>iEscb31r</code>is estimated at <span class="math inline">\(1.09\)</span> (CI = <span class="math inline">\(0.95\)</span>, <span class="math inline">\(1.23\)</span>) – meaning that a respondent would need extraversion about 1.1 SD above the mean to diagree with the statement <em>“Považuji se za někoho, kdo je někdy plachý, introvertní”.</em> with a <span class="math inline">\(50\%\)</span> probability. The first respondent had an ability/extraversion of <span class="math inline">\(1.47\)</span> (<span class="math inline">\(\pm 0.66\)</span>). The summary of the latent abilites shows that they are in accordance with the assumptions – mean of <span class="math inline">\(0\)</span>. The estimated discrimination of the Rasch model is equal to <span class="math inline">\(1.2\)</span>. Item 7 (<code>iEsb31r</code>) was the most difficult item in the <strong>Extraversion</strong> domain as we can see on the Wright map. The difficulty of the domain seems quite balanced. Item <code>iEscb31r</code> provides the most information about high levels of extraversion, item <code>iEscb46</code> provides the most information about low levels of extraversion. The peak of the test information curve is around <span class="math inline">\(\theta = 0\)</span>, meaning the test provides the most information about average levels of extraversion.</p>
+<p></br></p>
+<pre><code>##         MEAN_1   COV_11
+## par          0 1.970448
+## CI_2.5      NA 1.776551
+## CI_97.5     NA 2.164345</code></pre>
+<pre><code>##          a         b  g  u
+## par      1 1.0908121  0  1
+## CI_2.5  NA 0.9541222 NA NA
+## CI_97.5 NA 1.2275020 NA NA</code></pre>
+<p><img src="index_files/figure-html/irt_analysis_1PL-1.png" width="672" style="display: block; margin: auto;" /><img src="index_files/figure-html/irt_analysis_1PL-2.png" width="672" style="display: block; margin: auto;" /><img src="index_files/figure-html/irt_analysis_1PL-3.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code># estimated latent abilities
+fs_SE &lt;- fscores(fit_rasch, full.scores.SE = TRUE)
+fs_SE[1,]</code></pre>
+<pre><code>##        F1     SE_F1 
+## 1.4711763 0.6596684</code></pre>
+<pre class="r"><code>summary(fs_SE[, 1])</code></pre>
+<pre><code>##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max. 
+## -2.4832993 -0.9902839  0.0380714  0.0000158  1.0658842  2.5480626</code></pre>
+<pre class="r"><code>sd(fs_SE[, 1])</code></pre>
+<pre><code>## [1] 1.248974</code></pre>
+<p><img src="index_files/figure-html/irt_analysis_1PL_wright-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="pl-irt-model" class="section level4">
+<h4>2PL IRT model</h4>
+<p>Model equation: <span class="math display">\[
+\pi_{pi}=P(Y_{pi}=1|\theta_p)=\frac{exp(a_i(\theta_p-b_i))}{1+\exp(a_i(\theta_p-b_i))}
+\]</span></p>
+<ul>
+<li><p><span class="math inline">\(\theta_p\)</span> – trait of person <span class="math inline">\(p\)</span></p></li>
+<li><p><span class="math inline">\(\beta_i\)</span> – difficulty of item <span class="math inline">\(i\)</span> (inflection point location)</p></li>
+<li><p><span class="math inline">\(a_i\)</span> – item discrimination parameter (slope at inflection point)</p></li>
+</ul>
+<p>The ability variance is estimated at <span class="math inline">\(1.0\)</span>. Item (<code>iEenl11r</code>) has an estimated difficulty of <span class="math inline">\(-1.13\)</span> (CI = <span class="math inline">\(-1.41\)</span>, <span class="math inline">\(-0.86\)</span>) and discriminability of <span class="math inline">\(0.59\)</span> (CI = <span class="math inline">\(0.47\)</span>, <span class="math inline">\(0.72\)</span>), so it is the least difficult item. The best discriminating item is <code>iEscb16r</code> with a discriminability of <span class="math inline">\(2.5\)</span> (CI = <span class="math inline">\(2.1\)</span>. <span class="math inline">\(2.8\)</span>). The ability of the first respondent is estimated at <span class="math inline">\(0.77\)</span> (<span class="math inline">\(\pm 0.40\)</span>). The 2PL model is a better fit for the data than a Rasch model. </br></p>
+<pre><code>## $iEscb01
+##             a      b  g  u
+## par     1.807 -0.469  0  1
+## CI_2.5  1.569 -0.558 NA NA
+## CI_97.5 2.045 -0.381 NA NA
+## 
+## $iEasr06
+##             a      b  g  u
+## par     1.796 -0.385  0  1
+## CI_2.5  1.563 -0.471 NA NA
+## CI_97.5 2.030 -0.299 NA NA
+## 
+## $iEenl11r
+##             a      b  g  u
+## par     0.593 -1.134  0  1
+## CI_2.5  0.467 -1.409 NA NA
+## CI_97.5 0.719 -0.858 NA NA
+## 
+## $iEscb16r
+##             a     b  g  u
+## par     2.487 0.394  0  1
+## CI_2.5  2.145 0.318 NA NA
+## CI_97.5 2.829 0.469 NA NA
+## 
+## $iEasr21
+##             a     b  g  u
+## par     1.965 0.440  0  1
+## CI_2.5  1.704 0.356 NA NA
+## CI_97.5 2.225 0.524 NA NA
+## 
+## $iEenl26r
+##             a      b  g  u
+## par     0.813  0.057  0  1
+## CI_2.5  0.679 -0.076 NA NA
+## CI_97.5 0.948  0.190 NA NA
+## 
+## $iEscb31r
+##             a     b  g  u
+## par     1.948 0.665  0  1
+## CI_2.5  1.688 0.574 NA NA
+## CI_97.5 2.208 0.757 NA NA
+## 
+## $iEasr36r
+##             a     b  g  u
+## par     0.818 0.380  0  1
+## CI_2.5  0.682 0.238 NA NA
+## CI_97.5 0.953 0.521 NA NA
+## 
+## $iEenl41
+##             a      b  g  u
+## par     1.261 -0.077  0  1
+## CI_2.5  1.092 -0.176 NA NA
+## CI_97.5 1.430  0.021 NA NA
+## 
+## $iEscb46
+##             a      b  g  u
+## par     2.088 -0.205  0  1
+## CI_2.5  1.818 -0.283 NA NA
+## CI_97.5 2.358 -0.128 NA NA
+## 
+## $iEasr51r
+##             a     b  g  u
+## par     1.818 0.512  0  1
+## CI_2.5  1.577 0.423 NA NA
+## CI_97.5 2.059 0.601 NA NA
+## 
+## $iEenl56
+##             a      b  g  u
+## par     1.102 -0.370  0  1
+## CI_2.5  0.944 -0.483 NA NA
+## CI_97.5 1.259 -0.256 NA NA
+## 
+## $GroupPars
+##         MEAN_1 COV_11
+## par          0      1
+## CI_2.5      NA     NA
+## CI_97.5     NA     NA</code></pre>
+<p><img src="index_files/figure-html/irt_analysis_2PL-1.png" width="672" style="display: block; margin: auto;" /><img src="index_files/figure-html/irt_analysis_2PL-2.png" width="672" style="display: block; margin: auto;" /><img src="index_files/figure-html/irt_analysis_2PL-3.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code># estimated latent abilities
+fs_SE &lt;- fscores(fit_2PL, full.scores.SE = TRUE)
+head(fs_SE, n = 3)</code></pre>
+<pre><code>##              F1     SE_F1
+## [1,]  0.7716535 0.3975828
+## [2,]  1.0915449 0.4449859
+## [3,] -0.9843989 0.4753400</code></pre>
+<pre class="r"><code>summary(fs_SE[, 1])</code></pre>
+<pre><code>##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max. 
+## -1.7155138 -0.7022328 -0.0140886  0.0000412  0.6780762  1.7647222</code></pre>
+<pre class="r"><code>sd(fs_SE[, 1])</code></pre>
+<pre><code>## [1] 0.8983215</code></pre>
+<pre><code>## 
+## Model 1: mirt::mirt(data = BFI2_e_bin, model = 1, itemtype = &quot;Rasch&quot;, 
+##     SE = TRUE)
+## Model 2: mirt(data = BFI2_e_bin, model = 1, itemtype = &quot;2PL&quot;, SE = TRUE)</code></pre>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+Comparison of Rasch and 2PL model
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+AIC
+</th>
+<th style="text-align:right;">
+SABIC
+</th>
+<th style="text-align:right;">
+HQ
+</th>
+<th style="text-align:right;">
+BIC
+</th>
+<th style="text-align:right;">
+logLik
+</th>
+<th style="text-align:right;">
+X2
+</th>
+<th style="text-align:right;">
+df
+</th>
+<th style="text-align:right;">
+p
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+24419.63
+</td>
+<td style="text-align:right;">
+24449.28
+</td>
+<td style="text-align:right;">
+24445.87
+</td>
+<td style="text-align:right;">
+24490.58
+</td>
+<td style="text-align:right;">
+-12196.81
+</td>
+<td style="text-align:right;">
+NaN
+</td>
+<td style="text-align:right;">
+NaN
+</td>
+<td style="text-align:right;">
+NaN
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+24050.70
+</td>
+<td style="text-align:right;">
+24105.44
+</td>
+<td style="text-align:right;">
+24099.15
+</td>
+<td style="text-align:right;">
+24181.69
+</td>
+<td style="text-align:right;">
+-12001.35
+</td>
+<td style="text-align:right;">
+390.9238
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="cumulative-logit-models" class="section level4">
+<h4>Cumulative logit models</h4>
+<p>I decided to fit cumulative logit IRT models – graded response model and graded ratings scale model – since I’m working with ordinal items based on a Likert scale which also remains the same for all items.</p>
+<div id="graded-ratings-scale-model-equation" class="section level5">
+<h5>Graded ratings scale model equation:</h5>
+<p><span class="math display">\[
+{\pi\ast}_{pik} = P(Y_{pi} \geq k|\theta_p) = \frac{\exp(a_i(\theta_p - (b_i + \lambda_k)))}{1 + \exp(a_i(\theta_p - (b_i + \lambda_k)))}
+\]</span></p>
+<ul>
+<li><p><span class="math inline">\(\theta_p\)</span> – latent ability of respondent</p></li>
+<li><p><span class="math inline">\(b_{i}\)</span> – item-specific locations</p></li>
+<li><p><span class="math inline">\(\lambda_k\)</span> – category specific levels</p></li>
+</ul>
+<p></br></p>
+<pre><code>## $items
+##             a1    b1    b2    b3     b4      c
+## iEscb01  1.539 3.055 1.478 0.429 -1.268  0.000
+## iEasr06  1.566 3.055 1.478 0.429 -1.268 -0.066
+## iEenl11r 1.073 3.055 1.478 0.429 -1.268  0.126
+## iEscb16r 1.143 3.055 1.478 0.429 -1.268 -1.010
+## iEasr21  1.400 3.055 1.478 0.429 -1.268 -1.014
+## iEenl26r 1.510 3.055 1.478 0.429 -1.268 -0.296
+## iEscb31r 1.141 3.055 1.478 0.429 -1.268 -1.381
+## iEasr36r 1.311 3.055 1.478 0.429 -1.268 -0.648
+## iEenl41  1.525 3.055 1.478 0.429 -1.268 -0.320
+## iEscb46  1.388 3.055 1.478 0.429 -1.268 -0.109
+## iEasr51r 1.473 3.055 1.478 0.429 -1.268 -0.970
+## iEenl56  1.587 3.055 1.478 0.429 -1.268 -0.111
+## 
+## $means
+## F1 
+##  0 
+## 
+## $cov
+##    F1
+## F1  1</code></pre>
+</div>
+<div id="graded-response-model-equation" class="section level5">
+<h5>Graded response model equation:</h5>
+<p><span class="math display">\[
+{\pi\ast}_{pik} = P(Y_{pi} \geq k|\theta_p) = \frac{\exp(a_i(\theta_p - b_{ik}))}{1 + \exp(a_i(\theta_p - b_{ik}))}
+\]</span></p>
+<ul>
+<li><p><span class="math inline">\(\theta_p\)</span> – latent ability of respondent</p></li>
+<li><p><span class="math inline">\(b_{ik}\)</span> – category difficulty parameters of item <span class="math inline">\(i\)</span> and for categories <span class="math inline">\(k = 0,...,K_i\)</span> (<span class="math inline">\(K_i\)</span> – max. possible score for item <span class="math inline">\(i\)</span>)</p></li>
+</ul>
+<p></br></p>
+<pre><code>## $items
+##              a     b1     b2     b3    b4
+## iEscb01  1.814 -2.673 -1.249 -0.472 1.180
+## iEasr06  1.661 -2.817 -1.285 -0.377 1.264
+## iEenl11r 0.630 -5.216 -2.496 -1.115 2.108
+## iEscb16r 2.341 -1.287 -0.231  0.372 1.275
+## iEasr21  1.812 -1.585 -0.388  0.453 1.845
+## iEenl26r 0.800 -5.656 -2.432  0.049 2.722
+## iEscb31r 1.866 -1.238  0.044  0.647 1.717
+## iEasr36r 0.765 -4.135 -1.468  0.402 3.392
+## iEenl41  1.272 -3.052 -1.429 -0.092 1.860
+## iEscb46  1.974 -2.317 -1.046 -0.209 0.999
+## iEasr51r 1.636 -1.943 -0.422  0.529 1.909
+## iEenl56  1.105 -4.263 -1.920 -0.367 1.875
+## 
+## $means
+## F1 
+##  0 
+## 
+## $cov
+##    F1
+## F1  1</code></pre>
+<p>The <code>coef()</code> output tells us that the best discriminating item is item <code>iEscb16r</code> (<span class="math inline">\(2.34\)</span>).</p>
+<p></br></p>
+<pre><code>## 
+## Model 1: mirt::mirt(data = BFI2_e, model = 1, itemtype = &quot;grsmIRT&quot;)
+## Model 2: mirt::mirt(data = BFI2_e, model = 1, itemtype = &quot;graded&quot;)</code></pre>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+Comparison of GRM and GRSM model
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+AIC
+</th>
+<th style="text-align:right;">
+SABIC
+</th>
+<th style="text-align:right;">
+HQ
+</th>
+<th style="text-align:right;">
+BIC
+</th>
+<th style="text-align:right;">
+logLik
+</th>
+<th style="text-align:right;">
+X2
+</th>
+<th style="text-align:right;">
+df
+</th>
+<th style="text-align:right;">
+p
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+55167.64
+</td>
+<td style="text-align:right;">
+55229.22
+</td>
+<td style="text-align:right;">
+55222.14
+</td>
+<td style="text-align:right;">
+55314.99
+</td>
+<td style="text-align:right;">
+-27556.82
+</td>
+<td style="text-align:right;">
+NaN
+</td>
+<td style="text-align:right;">
+NaN
+</td>
+<td style="text-align:right;">
+NaN
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+54118.69
+</td>
+<td style="text-align:right;">
+54255.53
+</td>
+<td style="text-align:right;">
+54239.80
+</td>
+<td style="text-align:right;">
+54446.15
+</td>
+<td style="text-align:right;">
+-26999.35
+</td>
+<td style="text-align:right;">
+1114.947
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+</tbody>
+</table>
+<p>It seems that the less restrictive model (GRM) is a better fit for this data. However, the BIC is higher for this model, which suggests that the more restrictive GRSM would be a better fit when penalizing for the number of estimated parameters.</p>
+<p>The <strong>“Extrmt1”</strong> coefficient indicates the level of extraversion needed in order to strongly disagree with a given item with a <span class="math inline">\(50\%\)</span> probability – for example in order to strongly agree (reversed) with item <code>iEenl26r</code> (<em>“Považuji se za někoho, kdo je méně činorodý než ostatní.”</em>), one would have to exhibit very low levels of extraversion (<span class="math inline">\(-5.7\)</span>), meanwhile only slightly low levels of extraversion are required to strongly agree (reversed) with item <code>iEscb31r</code> (<em>“Považuji se za někoho, kdo je někdy plachý, introvertní.”</em>; <span class="math inline">\(-1.2\)</span>). The interpretation of the other “Extrmt” coefficients is similar, but they also include all the response categories below them – <strong>Extrmt4</strong> indicates the required level of extraversion in order to select answers 1 through 4 (disagree strongly, disagree a little, neutral, agree a little) with a <span class="math inline">\(50\%\)</span> probability.</p>
+<p>I plotted the item response category characteristic curves for items <code>iEscb01</code>, <code>iEenl11r</code>, <code>iEscb16r</code>, <code>iEenl26r</code> and <code>iEscb31r</code>. Item <code>iEscb01</code> (<em>“Považuji se za někoho, kdo je společenský, družný.”</em>) seems to be functioning very well – response category 1 (strongly disagree) is monotonically decreasing with an increase in extraversion, while response category 5 (strongly agree) is monotonically increasing with increase in extraversion. The IRCCs of item <code>iEenl11r</code> (<em>“Považuji se za někoho, kdo zřídkadky pociťuje vzrušení a nadšení pro věc.”</em>) look quite different, although the overall trend is similar – this item requires the lowest extraversion levels in order to select options neutral, agree or strongly agree with a <span class="math inline">\(50\%\)</span> probability. As mentioned above, very low levels of extraversion are required for strongly endorsing item <code>iEenl26r</code>. The IRCCs of item <code>iEscb16r</code> (<em>“Považuji se za někoho, kdo bývá tichý.”</em>) reflect its high discriminability. Finally, the plot for item <code>iEscb31r</code> shows a slow and gradual decline of the response category 1 curve.</p>
+<p>The test information curve is slightly leaning to the left, meaning it provides more information about respondents with lower levels of extraversion. The item information curves suggest that item <code>iEscb16r</code> provides the most information, especially around average extraversion levels, meanwhile item <code>iEenl11r</code> isn’t very informative at all.</p>
+<p>The estimated extraversion for the first respondent is <span class="math inline">\(\theta = -2.5 (\pm 0.39)\)</span>, which is quite low. The correlation between ability estimates and estimates based on standardized total scores is <span class="math inline">\(0.99\)</span>.</p>
+<p></br></p>
+<pre><code>##          Extrmt1 Extrmt2 Extrmt3 Extrmt4 Dscrmn
+## iEscb01   -2.679  -1.254  -0.476   1.179  1.811
+## iEasr06   -2.823  -1.290  -0.381   1.264  1.659
+## iEenl11r  -5.218  -2.498  -1.117   2.106  0.630
+## iEscb16r  -1.292  -0.233   0.370   1.276  2.333
+## iEasr21   -1.589  -0.391   0.452   1.846  1.809
+## iEenl26r  -5.662  -2.437   0.047   2.722  0.800
+## iEscb31r  -1.244   0.041   0.646   1.718  1.860
+## iEasr36r  -4.135  -1.470   0.400   3.388  0.765
+## iEenl41   -3.062  -1.435  -0.095   1.863  1.268
+## iEscb46   -2.323  -1.050  -0.212   0.998  1.970
+## iEasr51r  -1.949  -0.425   0.528   1.911  1.632
+## iEenl56   -4.274  -1.926  -0.370   1.876  1.103</code></pre>
+<p><img src="index_files/figure-html/irt_analysis_grm-1.png" width="672" style="display: block; margin: auto;" /><img src="index_files/figure-html/irt_analysis_grm-2.png" width="672" style="display: block; margin: auto;" /><img src="index_files/figure-html/irt_analysis_grm-3.png" width="672" style="display: block; margin: auto;" /><img src="index_files/figure-html/irt_analysis_grm-4.png" width="672" style="display: block; margin: auto;" /><img src="index_files/figure-html/irt_analysis_grm-5.png" width="672" style="display: block; margin: auto;" /><img src="index_files/figure-html/irt_analysis_grm-6.png" width="672" style="display: block; margin: auto;" /><img src="index_files/figure-html/irt_analysis_grm-7.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code># estimated abilities
+est &lt;- ltm::factor.scores(fit_grm)
+est$score.dat$z1[1]</code></pre>
+<pre><code>## [1] -2.521952</code></pre>
+<pre class="r"><code>est$score.dat$se.z1[1]</code></pre>
+<pre><code>## [1] 0.394152</code></pre>
+<pre class="r"><code>fs &lt;- mirt::fscores(fit_GRSM)
+sts &lt;- as.vector(scale(rowSums(BFI2_e)))</code></pre>
+<p><img src="index_files/figure-html/irt_analysis_grm_score_plot-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code># correlation between ability estimates and estimates based on standardized total scores
+cor(fs, sts)</code></pre>
+<pre><code>##         [,1]
+## F1 0.9905268</code></pre>
+</div>
+</div>
+</div>
+<div id="differential-item-functioning" class="section level3">
+<h3>Differential item functioning</h3>
+<p>DIF analysis is important in test validation, because it takes into account that groups may differ in overall ability and allows us to examine potential differences on the level of individual items. It can uncover unfair items or in case of tests that are meant to function differently for different groups, confirm their instructional sensitivity. There are three variables that could technically be used for DIF testing – gender, age (converted to age groups) and education. I’m going to work with the <strong>Agreeability</strong> domain of the inventory.</p>
+<p>There are <span class="math inline">\(1003\)</span> women and <span class="math inline">\(730\)</span> men in the `BFI2´ dataset. As can be seen in the summary statistic, the total agreeability scores seem slightly different for male and female participants with female participants scoring higher in agreeability (<span class="math inline">\(\bar X_{(F)} = 44.3\)</span>) than their male counterparts (<span class="math inline">\(\bar X_{(M)} = 41.95\)</span>). </br></p>
+<pre><code>## $Female
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    20.0    40.0    45.0    44.3    49.0    60.0 
+## 
+## $Male
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   19.00   37.00   42.00   41.95   47.00   60.00</code></pre>
+<p>When it comes to age, the ´BFI2´ sample is rather homogeneous with all participants being 15 to 26 years old. I divided participants into two groups – 15-20 (N = <span class="math inline">\(1055\)</span>) and 21-26 (N = <span class="math inline">\(678\)</span>) years old. The summary statistic shows, that the observed agreeability is a bit different for age groups with younger participants scoring (on average) lower (<span class="math inline">\(\bar X = 42.82\)</span>) than older participants (<span class="math inline">\(\bar X = 44.07\)</span>). </br></p>
+<pre><code>## 
+## 15-20 21-26 
+##  1055   678</code></pre>
+<pre><code>## $`15-20`
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   20.00   39.00   43.00   42.82   48.00   60.00 
+## 
+## $`21-26`
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   19.00   40.00   45.00   44.07   49.00   60.00</code></pre>
+<p>The <code>Educ</code> variable has quite a lot of missing values (NA = <span class="math inline">\(1010\)</span>). Nonetheless, I divided participants into two groups based on education level (secondary or tertiary). The observed ability in both groups is, again, slightly different with participants with tertiary education scoring higher (<span class="math inline">\(\bar X = 44.64\)</span>) than participants with secondary education (<span class="math inline">\(\bar X = 41.85\)</span>).</p>
+<pre><code>## Secondary  Tertiary      NA&#39;s 
+##       531       192      1010</code></pre>
+<pre><code>## $Secondary
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   20.00   38.00   42.00   41.85   47.00   57.00 
+## 
+## $Tertiary
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   23.00   40.00   45.00   44.64   50.00   60.00</code></pre>
+<p>With gender as the grouping variable and using a normal approximation threshold, item 1 (<em>“Považuji se za někoho, kdo je společenský, družný.”</em>) was detected as functioning differently.</p>
+<pre class="r"><code>#Gender
+BFI2_a_binG &lt;- BFI2_a_bin %&gt;% 
+  mutate(Gender = BFI2_a$Gender)
+
+
+## Delta plot with fixed threshold
+(DP_fixed &lt;- deltaPlotR::deltaPlot(data = BFI2_a_binG, group = &quot;Gender&quot;,
+                                   focal.name = &quot;Female&quot;, thr = 1.5))</code></pre>
+<pre><code>## 
+## Detection of Differential Item Functioning using Angoff&#39;s Delta method 
+##   without item purification 
+##  
+## Extreme proportions adjusted by constraining to [0.001; 0.999]
+## 
+## Statistics: 
+##  
+##        Prop.Ref Prop.Foc Delta.Ref Delta.Foc Dist.   
+## Item1   0.7370   0.8903  10.4637    8.0869    0.7866 
+## Item2   0.8055   0.8325   9.5546    9.1436   -0.5940 
+## Item3   0.3438   0.3958  14.6081   14.0568   -0.0461 
+## Item4   0.7164   0.8385  10.7108    9.0470    0.3379 
+## Item5   0.6986   0.7737  10.9181    9.9959   -0.1334 
+## Item6   0.7055   0.7388  10.8391   10.4416   -0.4872 
+## Item7   0.7178   0.8375  10.6946    9.0633    0.3150 
+## Item8   0.4000   0.4636  14.0134   13.3654   -0.0357 
+## Item9   0.2699   0.2961  15.4529   15.1425   -0.1290 
+## Item10  0.4411   0.5603  13.5928   12.3929    0.2910 
+## Item11  0.8466   0.8913   8.9126    8.0656   -0.3637 
+## Item12  0.2658   0.3161  15.5028   14.9151    0.0587 
+## 
+## Code: &#39;***&#39; if item is flagged as DIF 
+##  
+## Parameters of the major axis: 
+##  
+##        a      b
+##  -2.6129 1.1364
+## 
+## Detection threshold: 1.5
+## 
+## Items detected as DIF items: no DIF item detected 
+##  
+## Output was not captured!</code></pre>
+<pre class="r"><code>## Delta plot with normal approximation threshold
+(DP_norm &lt;- deltaPlotR::deltaPlot(data = BFI2_a_binG, group = &quot;Gender&quot;,
+                                  focal.name = &quot;Female&quot;, thr = &quot;norm&quot;))</code></pre>
+<pre><code>## 
+## Detection of Differential Item Functioning using Angoff&#39;s Delta method 
+##   without item purification 
+##  
+## Extreme proportions adjusted by constraining to [0.001; 0.999]
+## 
+## Statistics: 
+##  
+##        Prop.Ref Prop.Foc Delta.Ref Delta.Foc Dist.      
+## Item1   0.7370   0.8903  10.4637    8.0869    0.7866 ***
+## Item2   0.8055   0.8325   9.5546    9.1436   -0.5940    
+## Item3   0.3438   0.3958  14.6081   14.0568   -0.0461    
+## Item4   0.7164   0.8385  10.7108    9.0470    0.3379    
+## Item5   0.6986   0.7737  10.9181    9.9959   -0.1334    
+## Item6   0.7055   0.7388  10.8391   10.4416   -0.4872    
+## Item7   0.7178   0.8375  10.6946    9.0633    0.3150    
+## Item8   0.4000   0.4636  14.0134   13.3654   -0.0357    
+## Item9   0.2699   0.2961  15.4529   15.1425   -0.1290    
+## Item10  0.4411   0.5603  13.5928   12.3929    0.2910    
+## Item11  0.8466   0.8913   8.9126    8.0656   -0.3637    
+## Item12  0.2658   0.3161  15.5028   14.9151    0.0587    
+## 
+## Code: &#39;***&#39; if item is flagged as DIF 
+##  
+## Parameters of the major axis: 
+##  
+##        a      b
+##  -2.6129 1.1364
+## 
+## Detection threshold: 0.7661 (significance level: 5%)
+## 
+## Items detected as DIF items: 
+##       
+##  Item1
+## 
+## Output was not captured!</code></pre>
+<p>When using a normal approximation and age as a grouping a variable with a theshold of <span class="math inline">\(0.6756\)</span>, item 6 is detected as functioning differently. Item 6 refers to item 27 in the complete inventory, and is phrased as: <em>“Považuji se za někoho, kdo má v povaze odpouštět.”</em>.</p>
+<p></br></p>
+<pre class="r"><code># Age
+BFI2_a_binA &lt;- BFI2_a_bin %&gt;% 
+  mutate(Age = BFI2_a$Age)
+
+## Delta plot with fixed threshold
+(DP_fixed &lt;- deltaPlotR::deltaPlot(data = BFI2_a_binA, group = &quot;Age&quot;,
+                                   focal.name = &quot;15-20&quot;, thr = 1.5))</code></pre>
+<pre><code>## 
+## Detection of Differential Item Functioning using Angoff&#39;s Delta method 
+##   without item purification 
+##  
+## Extreme proportions adjusted by constraining to [0.001; 0.999]
+## 
+## Statistics: 
+##  
+##        Prop.Ref Prop.Foc Delta.Ref Delta.Foc Dist.   
+## Item1   0.8525   0.8085   8.8110    9.5100    0.1202 
+## Item2   0.8628   0.7943   8.6275    9.7141   -0.1543 
+## Item3   0.4041   0.3545  13.9707   14.4928   -0.1689 
+## Item4   0.8112   0.7716   9.4706   10.0240    0.1751 
+## Item5   0.7920   0.7100   9.7460   10.7870   -0.2115 
+## Item6   0.6991   0.7412  10.9126   10.4114    0.8449 
+## Item7   0.8127   0.7706   9.4487   10.0365    0.1512 
+## Item8   0.4735   0.4133  13.2664   13.8766   -0.1772 
+## Item9   0.3038   0.2730  15.0536   15.4152   -0.1374 
+## Item10  0.5619   0.4768  12.3764   13.2330   -0.2885 
+## Item11  0.9204   0.8417   7.3702    8.9940   -0.4528 
+## Item12  0.2817   0.3033  15.3111   15.0595    0.2994 
+## 
+## Code: &#39;***&#39; if item is flagged as DIF 
+##  
+## Parameters of the major axis: 
+##  
+##      a      b
+##  1.823 0.8907
+## 
+## Detection threshold: 1.5
+## 
+## Items detected as DIF items: no DIF item detected 
+##  
+## Output was not captured!</code></pre>
+<pre class="r"><code>## Delta plot with normal approximation threshold
+(DP_norm &lt;- deltaPlotR::deltaPlot(data = BFI2_a_binA, group = &quot;Age&quot;,
+                                  focal.name = &quot;15-20&quot;, thr = &quot;norm&quot;))</code></pre>
+<pre><code>## 
+## Detection of Differential Item Functioning using Angoff&#39;s Delta method 
+##   without item purification 
+##  
+## Extreme proportions adjusted by constraining to [0.001; 0.999]
+## 
+## Statistics: 
+##  
+##        Prop.Ref Prop.Foc Delta.Ref Delta.Foc Dist.      
+## Item1   0.8525   0.8085   8.8110    9.5100    0.1202    
+## Item2   0.8628   0.7943   8.6275    9.7141   -0.1543    
+## Item3   0.4041   0.3545  13.9707   14.4928   -0.1689    
+## Item4   0.8112   0.7716   9.4706   10.0240    0.1751    
+## Item5   0.7920   0.7100   9.7460   10.7870   -0.2115    
+## Item6   0.6991   0.7412  10.9126   10.4114    0.8449 ***
+## Item7   0.8127   0.7706   9.4487   10.0365    0.1512    
+## Item8   0.4735   0.4133  13.2664   13.8766   -0.1772    
+## Item9   0.3038   0.2730  15.0536   15.4152   -0.1374    
+## Item10  0.5619   0.4768  12.3764   13.2330   -0.2885    
+## Item11  0.9204   0.8417   7.3702    8.9940   -0.4528    
+## Item12  0.2817   0.3033  15.3111   15.0595    0.2994    
+## 
+## Code: &#39;***&#39; if item is flagged as DIF 
+##  
+## Parameters of the major axis: 
+##  
+##      a      b
+##  1.823 0.8907
+## 
+## Detection threshold: 0.6756 (significance level: 5%)
+## 
+## Items detected as DIF items: 
+##       
+##  Item6
+## 
+## Output was not captured!</code></pre>
+<pre class="r"><code>deltaPlotR::diagPlot(DP_norm, thr.draw = TRUE, main =&quot;DP_norm Age&quot;)</code></pre>
+<p><img src="index_files/figure-html/dif_delta_plot_age-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre><code>## The plot was not captured!</code></pre>
+<p>While using a fixed threshold and education as a grouping variable, item 6 was also detected as functioning differently. When using a threshold based on normal approximation, item 6 was detected as functioning differently with a threshold of <span class="math inline">\(1.2715\)</span>.</p>
+<p></br></p>
+<pre class="r"><code># Education
+BFI2_a_binE &lt;- BFI2_a_bin %&gt;% 
+  mutate(Educ = BFI2_a$Educ)
+
+## Delta plot with fixed threshold
+(DP_fixed &lt;- deltaPlotR::deltaPlot(data = BFI2_a_binE, group = &quot;Educ&quot;,
+                                   focal.name = &quot;Secondary&quot;, thr = 1.5))</code></pre>
+<pre><code>## 
+## Detection of Differential Item Functioning using Angoff&#39;s Delta method 
+##   without item purification 
+##  
+## Extreme proportions adjusted by constraining to [0.001; 0.999]
+## 
+## Statistics: 
+##  
+##        Prop.Ref Prop.Foc Delta.Ref Delta.Foc Dist.      
+## Item1   0.8750   0.7910   8.3986    9.7610    0.0686    
+## Item2   0.8438   0.7250   8.9600   10.6084   -0.1853    
+## Item3   0.3958   0.3315  14.0566   14.7437    0.1533    
+## Item4   0.8229   0.7740   9.2938    9.9915    0.4965    
+## Item5   0.8125   0.6535   9.4514   11.4210   -0.4602    
+## Item6   0.7031   0.7721  10.8664   10.0165    1.5304 ***
+## Item7   0.8021   0.7420   9.6037   10.4020    0.3989    
+## Item8   0.5156   0.3503  12.8433   14.5382   -0.5061    
+## Item9   0.3073   0.2524  15.0142   15.6684    0.1072    
+## Item10  0.5469   0.4181  12.5289   13.8272   -0.1882    
+## Item11  0.9531   0.8136   6.2962    9.4356   -1.0968    
+## Item12  0.3750   0.2599  14.2746   15.5748   -0.3183    
+## 
+## Code: &#39;***&#39; if item is flagged as DIF 
+##  
+## Parameters of the major axis: 
+##  
+##       a      b
+##  2.2878 0.9008
+## 
+## Detection threshold: 1.5
+## 
+## Items detected as DIF items: 
+##       
+##  Item6
+## 
+## Output was not captured!</code></pre>
+<pre class="r"><code>deltaPlotR::diagPlot(DP_fixed, thr.draw = TRUE, main = &quot;DP_fixed Education&quot;)</code></pre>
+<p><img src="index_files/figure-html/dif_delta_plot_educ-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre><code>## The plot was not captured!</code></pre>
+<pre class="r"><code>## Delta plot with normal approximation threshold
+(DP_norm &lt;- deltaPlotR::deltaPlot(data = BFI2_a_binE, group = &quot;Educ&quot;,
+                                  focal.name = &quot;Secondary&quot;, thr = &quot;norm&quot;))</code></pre>
+<pre><code>## 
+## Detection of Differential Item Functioning using Angoff&#39;s Delta method 
+##   without item purification 
+##  
+## Extreme proportions adjusted by constraining to [0.001; 0.999]
+## 
+## Statistics: 
+##  
+##        Prop.Ref Prop.Foc Delta.Ref Delta.Foc Dist.      
+## Item1   0.8750   0.7910   8.3986    9.7610    0.0686    
+## Item2   0.8438   0.7250   8.9600   10.6084   -0.1853    
+## Item3   0.3958   0.3315  14.0566   14.7437    0.1533    
+## Item4   0.8229   0.7740   9.2938    9.9915    0.4965    
+## Item5   0.8125   0.6535   9.4514   11.4210   -0.4602    
+## Item6   0.7031   0.7721  10.8664   10.0165    1.5304 ***
+## Item7   0.8021   0.7420   9.6037   10.4020    0.3989    
+## Item8   0.5156   0.3503  12.8433   14.5382   -0.5061    
+## Item9   0.3073   0.2524  15.0142   15.6684    0.1072    
+## Item10  0.5469   0.4181  12.5289   13.8272   -0.1882    
+## Item11  0.9531   0.8136   6.2962    9.4356   -1.0968    
+## Item12  0.3750   0.2599  14.2746   15.5748   -0.3183    
+## 
+## Code: &#39;***&#39; if item is flagged as DIF 
+##  
+## Parameters of the major axis: 
+##  
+##       a      b
+##  2.2878 0.9008
+## 
+## Detection threshold: 1.2715 (significance level: 5%)
+## 
+## Items detected as DIF items: 
+##       
+##  Item6
+## 
+## Output was not captured!</code></pre>
+<pre class="r"><code>deltaPlotR::diagPlot(DP_norm, thr.draw = TRUE, main = &quot;DP_norm Education&quot;)</code></pre>
+<p><img src="index_files/figure-html/dif_delta_plot_educ-2.png" width="672" style="display: block; margin: auto;" /></p>
+<pre><code>## The plot was not captured!</code></pre>
+<p>Using the Mantel-Haenszel test, the following items were detected as functioning differently when grouping by gender: i2, i7, i17, i27, i32. The effect size for item i2 is large (<span class="math inline">\(2.0368\)</span>), the effect for item i7 is moderate (<span class="math inline">\(-1.0765\)</span>) and the rest is negligible. On average, the odds of agreeing with item i2 (<em>“Považuji se za někoho, kdo je soucitný, má dobré srdce.”</em>) are about two times higher for females. On average, the odds of agreeing with item i7 (<em>“Považuji se za někoho, kdo je uctivý, s ostatními zachází s úctou.”</em>) are higher for males. Both effects could be presumably explained by gender roles and corresponding societal expectations.</p>
+<p></br></p>
+<pre><code>## 
+## Detection of Differential Item Functioning using Mantel-Haenszel method 
+## with continuity correction and without item purification
+## 
+## Results based on asymptotic inference 
+##  
+## Matching variable: test score 
+##  
+## No set of anchor items was provided 
+##  
+## No p-value adjustment for multiple comparisons 
+##  
+## Mantel-Haenszel Chi-square statistic: 
+##  
+##          Stat.   P-value    
+## iAcmp02  27.4107  0.0000 ***
+## iArsp07   7.7294  0.0054 ** 
+## iAtrs12r  0.9056  0.3413    
+## iAcmp17r  4.6415  0.0312 *  
+## iArsp22r  0.0019  0.9652    
+## iAtrs27   4.4994  0.0339 *  
+## iAcmp32   5.2951  0.0214 *  
+## iArsp37r  1.4747  0.2246    
+## iAtrs42r  1.7684  0.1836    
+## iAcmp47r  1.1304  0.2877    
+## iArsp52   0.5683  0.4509    
+## iAtrs57   0.0316  0.8589    
+## 
+## Signif. codes: 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1  
+## 
+## Detection threshold: 3.8415 (significance level: 0.05)
+## 
+## Items detected as DIF items: 
+##          
+##  iAcmp02 
+##  iArsp07 
+##  iAcmp17r
+##  iAtrs27 
+##  iAcmp32 
+## 
+##  
+## Effect size (ETS Delta scale): 
+##  
+## Effect size code: 
+##  &#39;A&#39;: negligible effect 
+##  &#39;B&#39;: moderate effect 
+##  &#39;C&#39;: large effect 
+##  
+##          alphaMH deltaMH  
+## iAcmp02   0.4203  2.0368 C
+## iArsp07   1.5810 -1.0765 B
+## iAtrs12r  1.1345 -0.2964 A
+## iAcmp17r  0.7108  0.8023 A
+## iArsp22r  1.0147 -0.0344 A
+## iAtrs27   1.3245 -0.6604 A
+## iAcmp32   0.7051  0.8212 A
+## iArsp37r  1.1736 -0.3761 A
+## iAtrs42r  1.1988 -0.4261 A
+## iAcmp47r  0.8711  0.3242 A
+## iArsp52   1.1616 -0.3521 A
+## iAtrs57   1.0305 -0.0707 A
+## 
+## Effect size codes: 0 &#39;A&#39; 1.0 &#39;B&#39; 1.5 &#39;C&#39; 
+##  (for absolute values of &#39;deltaMH&#39;) 
+##  
+## Output was not captured!</code></pre>
+<p>Since I’m working with ordinal data, I selected a cumulative logit model for DIF with regression models. Items 2, 7, 17, 42 and 47 were detected as functioning differently based on gender. In order to at least agree a little with item 2 (<em>“Považuji se za někoho, kdo je soucitný, má dobré srdce.”</em>) with a <span class="math inline">\(50\%\)</span> probability, male respondents were estimated to have a standardized total score of <span class="math inline">\(-1.16\)</span>, while a somewhat lower standardized total score (<span class="math inline">\(-1.86\)</span>) was sufficient for female respondents. A similar trend can be observed with item 17 (reversed - <em>“Považuji se za někoho, kdo s ostatními příliš nesoucítí.<em>), which makes sense given the wording of the two items. Item 42 on the other hand slightly favors male respondents, who, in order to at least agree a little bit with the statement </em>”Považuji se za někoho, kdo je vůči záměrům ostatních nedůvěřivý.”</em> (reversed) with a 50% probability, were estimated to have a standardized total score of <span class="math inline">\(1.08\)</span>. Female respondents were estimated to have a slightly higher total score of <span class="math inline">\(1.15\)</span>. A male respondent with an average agreeability score has a <span class="math inline">\(60\%\)</span> probability of seeing himself at least somewhat as someone who is sympathetic, while a female respondent has a corresponding probability of <span class="math inline">\(63\%\)</span>. With the Bejamini-Hochberg correction the detected items remain the same, but the p-value of item 42 is now only below the threshold <span class="math inline">\(0.001\)</span>.</p>
+<p></br></p>
+<pre><code>## Detection of both types of Differential Item Functioning
+## for ordinal data using cumulative logit regression model
+## 
+## Likelihood-ratio Chi-square statistics
+## 
+## Item purification was not applied
+## No p-value adjustment for multiple comparisons
+## 
+##          Chisq-value P-value    
+## iAcmp02  32.1825      0.0000 ***
+## iArsp07  13.0218      0.0015 ** 
+## iAtrs12r  0.9161      0.6325    
+## iAcmp17r 28.0959      0.0000 ***
+## iArsp22r  2.4058      0.3003    
+## iAtrs27   3.0764      0.2148    
+## iAcmp32   1.3033      0.5212    
+## iArsp37r  1.5645      0.4574    
+## iAtrs42r 14.4755      0.0007 ***
+## iAcmp47r  8.3113      0.0157 *  
+## iArsp52   4.1293      0.1269    
+## iAtrs57   0.4415      0.8019    
+## 
+## Signif. codes: 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Items detected as DIF items:
+##  iAcmp02
+##  iArsp07
+##  iAcmp17r
+##  iAtrs42r
+##  iAcmp47r</code></pre>
+<pre class="r"><code>coef(fit, SE = TRUE)$iAcmp02</code></pre>
+<pre><code>##                  b2         b3          b4         b5          a      bDIF2      bDIF3      bDIF4       bDIF5       aDIF
+## estimate -3.7465872 -2.3311038 -1.16416728 0.74975066 1.58651128 -1.5532905 -1.0834312 -0.6960751 -0.06076410 -0.3953855
+## SE        0.2229763  0.1117726  0.06574045 0.06791423 0.08219925  0.3668848  0.2367521  0.1386163  0.09247543  0.1011679</code></pre>
+<pre class="r"><code>coef(fit, SE = TRUE)$iAcmp17r</code></pre>
+<pre><code>##                  b2         b3          b4         b5          a      bDIF2      bDIF3       bDIF4       bDIF5       aDIF
+## estimate -3.0814098 -1.6875929 -0.92608243 0.74679893 1.68770036 -0.7152242 -0.5304063 -0.42943115 -0.20760966 -0.1975868
+## SE        0.1525441  0.0791357  0.05600347 0.06413846 0.08327597  0.2278495  0.1363454  0.09277368  0.08003456  0.1022943</code></pre>
+<pre class="r"><code>coef(fit, SE = TRUE)$iAtrs42r</code></pre>
+<pre><code>##                  b2          b3        b4        b5          a     bDIF2     bDIF3     bDIF4      bDIF5       aDIF
+## estimate -3.2693962 -0.69470825 1.0758525 4.1404094 0.87769432 0.8624647 0.3918807 0.0682697 -0.4918492 0.19629679
+## SE        0.2505602  0.09147155 0.1262751 0.3613857 0.06898029 0.2934291 0.1055837 0.1471971  0.3999147 0.09204964</code></pre>
+<p><img src="index_files/figure-html/dif_irt_plot-1.png" width="672" style="display: block; margin: auto;" /><img src="index_files/figure-html/dif_irt_plot-2.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>predict(fit, item = &quot;iAcmp02&quot;, match = 0, group = c(0, 1)) %&gt;% 
+  kable() %&gt;% 
+  kable_styling()</code></pre>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+P(Y = 1)
+</th>
+<th style="text-align:right;">
+P(Y = 2)
+</th>
+<th style="text-align:right;">
+P(Y = 3)
+</th>
+<th style="text-align:right;">
+P(Y = 4)
+</th>
+<th style="text-align:right;">
+P(Y = 5)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+0.0026147
+</td>
+<td style="text-align:right;">
+0.0215519
+</td>
+<td style="text-align:right;">
+0.1120631
+</td>
+<td style="text-align:right;">
+0.6304198
+</td>
+<td style="text-align:right;">
+0.2333505
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0.0018096
+</td>
+<td style="text-align:right;">
+0.0150283
+</td>
+<td style="text-align:right;">
+0.0815042
+</td>
+<td style="text-align:right;">
+0.5960364
+</td>
+<td style="text-align:right;">
+0.3056215
+</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>predict(fit, item = &quot;iAcmp02&quot;, match = 0, group = c(0, 1), type = &quot;cumulative&quot;) %&gt;% 
+  kable() %&gt;% 
+  kable_styling()</code></pre>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+P(Y &lt;= 1)
+</th>
+<th style="text-align:right;">
+P(Y &lt;= 2)
+</th>
+<th style="text-align:right;">
+P(Y &lt;= 3)
+</th>
+<th style="text-align:right;">
+P(Y &lt;= 4)
+</th>
+<th style="text-align:right;">
+P(Y &lt;= 5)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.9973853
+</td>
+<td style="text-align:right;">
+0.9758335
+</td>
+<td style="text-align:right;">
+0.8637703
+</td>
+<td style="text-align:right;">
+0.2333505
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.9981904
+</td>
+<td style="text-align:right;">
+0.9831621
+</td>
+<td style="text-align:right;">
+0.9016579
+</td>
+<td style="text-align:right;">
+0.3056215
+</td>
+</tr>
+</tbody>
+</table>
+<pre><code>## Detection of both types of Differential Item Functioning
+## for ordinal data using cumulative logit regression model
+## 
+## Likelihood-ratio Chi-square statistics
+## 
+## Item purification was not applied
+## Multiple comparisons made with Benjamini-Hochberg adjustment of p-values
+## 
+##          Chisq-value P-value Adj. P-value    
+## iAcmp02  32.1825      0.0000  0.0000      ***
+## iArsp07  13.0218      0.0015  0.0045      ** 
+## iAtrs12r  0.9161      0.6325  0.6900         
+## iAcmp17r 28.0959      0.0000  0.0000      ***
+## iArsp22r  2.4058      0.3003  0.4505         
+## iAtrs27   3.0764      0.2148  0.3682         
+## iAcmp32   1.3033      0.5212  0.6254         
+## iArsp37r  1.5645      0.4574  0.6098         
+## iAtrs42r 14.4755      0.0007  0.0029      ** 
+## iAcmp47r  8.3113      0.0157  0.0376      *  
+## iArsp52   4.1293      0.1269  0.2537         
+## iAtrs57   0.4415      0.8019  0.8019         
+## 
+## Signif. codes: 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Items detected as DIF items:
+##  iAcmp02
+##  iArsp07
+##  iAcmp17r
+##  iAtrs42r
+##  iAcmp47r</code></pre>
+</div>
+<div id="discussion" class="section level3">
+<h3>Discussion</h3>
+<p>The data set is most notably limited by the narrow age range of the respondents (<span class="math inline">\(15-26\)</span>) with a rather high level of achieved education, which might lead to an over-representation of certain traits and under-representation of others – therefore, I would recommend a more representative sample. Furthermore, I would recommend gathering data in order to examine the test validity – convergent (correlation with similar measures), construct validity (rater-concordance), discriminant validity (distinction from similar but not identical constructs), predictive validity (correlation of some domains with other measures, such as GPAs, future job performance) and incremental validity (comparing predictive value with other tests/measures). My analysis is limited by mostly focusing on a specific domain and by not taking the domain facets into account. Overall, the test exhibits decent measures of reliability, although the <em>Agreeability</em> domain would perhaps benefit from a reexamination, since it consistently yields the lowest reliability estimates. The <em>Negative Emotionality</em> and <em>Extraversion</em> domains on the other hand yield the highest estimates, which could be explained by the more precisely defined concepts of said domains. The subscales overlap in all but the <em>Extraversion</em> domain, in fact, some items from different subscales are phrased in a very similar way. I would consider rewording or removing certain items – especially items <code>iEenl11r</code> (<em>“Považuji se za někoho, kdo zřídkakdy pociťuje vzrušení a nadšení pro věc.”</em>) and item <code>iEasr36r</code>(<em>“Považuji se za někoho, kdo pokládá za obtížné ovlivňovat druhé..”</em>) which lower the reliability of the <em>Extraversion</em> domain and provide almost no information. Some items of the <strong>Agreeability</strong> domain function differently for men and women, which could be expected due to established gender roles and corresponding societal expectations. Nonetheless, perhaps the wording of for example item <code>iAcmp02</code> (<em>“Považuji se za někoho, kdo je soucitný, má dobré srdce.”</em>) could be adjusted. Range restriction in this data could occur for example if we wanted to determine the test-retest reliability of the <strong>Negative Emotionality</strong> subscale, but we only manage to collect new data from participants with a relatively high score from the first administration. I would adjust my analysis with the <code>rangeCorrection</code> function from the <code>psych</code> package or the Wiberg &amp; Sundström formula, which would lead to a better estimate of the true test-retest reliability.</p>
+<p></br></p>
+</div>
+<div id="references" class="section level3 unnumbered">
+<h3 class="unnumbered">References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent" line-spacing="2">
+<div id="ref-cambridge" class="csl-entry">
+Corr, P. J., &amp; Matthews, G. (2020). <em>The cambridge handbook of personality psychology</em>. Cambridge University Press.
+</div>
+<div id="ref-hrebickova2020big" class="csl-entry">
+Hřebíčková, M., Jelínek, M., Květon, P., Benkovič, A., Botek, M., Sudzina, F., Soto, C. J., &amp; John, O. P. (2020). Big five inventory 2 (BFI-2): Hierarchický model s 15 subškálami. <em>Československá Psychologie</em>, <em>64</em>(6).
+</div>
+<div id="ref-musek2007" class="csl-entry">
+Musek, J. (2007). A general factor of personality: Evidence for the big one in the five-factor model. <em>Journal of Research in Personality</em>, <em>41</em>(6), 1213–1233. https://doi.org/<a href="https://doi.org/10.1016/j.jrp.2007.02.003">https://doi.org/10.1016/j.jrp.2007.02.003</a>
+</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("show" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1316 @@
+---
+title: 'Selected Topics of Psychometrics (NMST570)'
+subtitle: 'Final project'
+author: 'Kateřina Hudáčová'
+date: \today
+output:
+  html_document:
+    theme: cerulean
+    toc: yes
+    toc_depth: 3
+    toc_float: yes
+    fig_caption: yes
+    df_print: paged
+    code_folding: show
+bibliography: references.bib
+csl: apa-annotated-bibliography.csl
+---
+
+<style>
+body {
+text-align: justify}
+</style>
+
+<!-- Chunk options: https://bookdown.org/yihui/rmarkdown-cookbook/hide-one.html -->
+
+</br>
+
+
+```{r load_libraries, echo = FALSE, message = FALSE, warning = FALSE}
+library(ShinyItemAnalysis)
+library(psych)
+library(ggplot2)
+library(dplyr)
+library(tidyverse)
+library(ggridges)
+library(knitr)
+library(vtable)
+library(kableExtra)
+library(corrplot)
+library(psych)
+library(psychometric)
+library(maditr)
+library(DT)
+library(mirt)
+library(ltm)
+library(deltaPlotR)
+library(difR)
+library(difNLR)
+library(gridExtra)
+library(ggdendro)
+library(VGAM)
+
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.align = "center")
+#out.width="70%", out.height="70%")
+
+theme_fig <- function(base_size = 17, base_family = "") {
+  theme_bw(base_size = base_size, base_family = base_family) +
+    theme(
+      legend.key = element_rect(fill = "white", colour = NA),
+      axis.line = element_line(colour = "black"),
+      panel.grid.major = element_blank(),
+      panel.grid.minor = element_blank(),
+      panel.background = element_blank(),
+      plot.title = element_blank(),
+      legend.background = element_blank()
+    )
+}
+
+```
+
+### Data
+
+I chose the [BFI2 dataset](https://rdrr.io/cran/ShinyItemAnalysis/man/BFI2.html) from the `ShinyItemAnalysis` package. The wording of the items can be found in the attachment of the study [@hrebickova2020big]. The dataset includes answers from $1733$ respondents to $63$ items -- of those, $60$ items are a part of the inventory, and $3$ items are demographic. The $60$ inventory items are scored on a 5-point Likert scale (ordinal) and the $3$ demographic items are: age (numeric), gender (nominal/dichotomous), education (nominal). I used alternative item names provided in the dataset documentation and I set both the `Gender` and `Educ` variables to factors with appropriate labels. I also created separate data frames for the 5 domains (*Extraversion, Agreeability, Conscientiousness, Negative Emotionality, Open-Mindedness*). 
+
+I provided descriptive statistics for all available grouping variables. Circa $57.9 \%$ of the respondents are female, $42.1 \%$ are male. Notably, the dataset only covers an age group of people between $15$ and $26$ with a mean of $20.06$ years. Out of the $723$ respondents who specified their highest level of attained education -- $32.1 \%$ finished a secondary technical school, $27.9 \%$ finished a secondary general school, $13.4 \%$ finished another secondary school, $11.2 \%$ obtained a Masters degree, $10.4 \%$ obtained a Bachelor degree, $4 \%$ finished a tertiary professional school and finally, $1 \%$ obtained a PhD. 
+
+Although the `BFI2` measures multiple traits that are commonly assumed to be largely independent, there is some evidence for a single general factor of personality [@musek2007], which is why I provided descriptive statistics and a histogram of the total score. The mean total score spans from $111$ to $258$ with a mean of $200.8$ and with a median of $201$. I also provided total scores and histograms for the 5 respective domains. When observing the distribution of scores grouped by the Big5 domains it can be stated that they do not follow a normal distribution -- they are multimodal. *Open-Mindedness* has the highest mean in this sample ($43.48$) followed by *Agreeability* ($43.31$), *Extraversion* ($39.59$), *Conscientiousness* ($38.75$) and *Negative Emotionality* (35.63). *Negative Emotionality* exhibits the highest standard deviation, which points to relatively spread out responses on the corresponding items. It could be hypothesized, that these results are, to a certain extent, typical of the given age group (e.g. high *Open-Mindedness*). On average, female respondents in this sample scored higher than males in all dimensions except *Extraversion*. The most distinct gender differences in this sample seem to emerge along the dimensions of *Negative Emotionaliy* ($\bar X_{(F)} = 37.61$, $\bar X_{(M)} = 32.92$) and *Agreeability* ($\bar X_{(F)} = 44.3$, $\bar X_{(M)} = 41.95$).
+</br>
+
+```{r load_data, echo = FALSE}
+# loading data
+data(BFI2, package='ShinyItemAnalysis')
+
+#--------
+# alternative item names
+
+colnames(BFI2)[1:60] <- c("iEscb01", "iAcmp02", "iCorg03r", "iNanx04r", "iOaes05r", "iEasr06",
+"iArsp07", "iCprd08r", "iNdep09r", "iOint10", "iEenl11r", "iAtrs12r", "iCrsp13", "iNemt14",
+"iOcrt15", "iEscb16r", "iAcmp17r", "iCorg18", "iNanx19", "iOaes20", "iEasr21", "iArsp22r",
+"iCprd23r", "iNdep24r", "iOint25r", "iEenl26r", "iAtrs27", "iCrsp28r", "iNemt29r",
+"iOcrt30r", "iEscb31r", "iAcmp32", "iCorg33", "iNanx34", "iOaes35", "iEasr36r", "iArsp37r",
+"iCprd38", "iNdep39", "iOint40", "iEenl41", "iAtrs42r", "iCrsp43", "iNemt44r", "iOcrt45r",
+"iEscb46", "iAcmp47r", "iCorg48r", "iNanx49r", "iOaes50r", "iEasr51r", "iArsp52", "iCprd53",
+"iNdep54", "iOint55r", "iEenl56", "iAtrs57", "iCrsp58r", "iNemt59", "iOcrt60")
+
+#--------
+# changing gender and education to factor variables
+
+BFI2$Gender <- factor(BFI2$Gender, 
+                      levels=c('0', '1'), 
+                      labels=c('Female', 'Male'))
+
+BFI2$Educ <- factor(BFI2$Educ,
+                    levels = c(2:8),
+                    labels=c("Secondary technical school", "Secondary general school", "Other secondary school",
+                             "Tertiary professional school", "Bachelor degree", 
+                             "Masters degree", "PhD"))
+```
+
+
+```{r item_descriptives, echo=FALSE}
+BFI2$ts <- rowSums(BFI2[1:60])
+st(BFI2[1:60], summ = c("mean(x)", "sd(x)"), col.breaks = c(30), title = "Item descriptives", digits = 2)
+```
+
+```{r age_ts_descriptives, echo=FALSE}
+st(BFI2, vars = c("Age", "ts"), labels = c("Age", "Total Score"), title = "Age and Total Score", digits = 2)
+```
+
+```{r gender_educ_descriptives, echo=FALSE}
+st(BFI2, vars = c("Gender", "Educ"), labels = c("Gender", "Education"), title = "Gender and Education")
+```
+
+
+```{r total_scores, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Total scores histogram"}
+ggplot(BFI2, 
+       aes(ts)) +
+  geom_histogram(bins = 50) +
+  labs(title = "Total Scores", x = "Total Score") +
+  theme_fig()
+```
+
+```{r domain_scores, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Domain scores histograms"}
+# domain data frames
+BFI2_e <- BFI2[, seq(1, 56, 5)]
+BFI2_a <- BFI2[, seq(2, 57, 5)]
+BFI2_c <- BFI2[, seq(3, 58, 5)]
+BFI2_n <- BFI2[, seq(4, 59, 5)]
+BFI2_o <- BFI2[, seq(5, 60, 5)]
+
+# domain total scores
+domain_scores <- data.frame(apply(BFI2_e, 1, sum),
+  apply(BFI2_a, 1, sum),
+  apply(BFI2_c, 1, sum),
+  apply(BFI2_n, 1, sum),
+  apply(BFI2_o, 1, sum))
+
+colnames(domain_scores) <- c("Extraversion", "Agreeability", "Conscientiousness", "Neg. Emotionality", "Open-Mindedness")
+
+f <- function(x){
+  round(data.frame(mean(x), sd(x), median(x), min(x), max(x)), digits = 2)
+}
+
+df <- sapply(domain_scores[,-6], f)
+row.names(df) <- c("Mean", "SD", "Median", "Min", "Max")
+kable(df, booktabs = T, caption = "Domain Total Scores") %>% 
+  kable_styling()
+
+# add gender
+domain_scores <- cbind(domain_scores, Gender = BFI2$Gender)
+
+domains_long <- domain_scores %>% 
+  mutate(pid = row_number()) %>% 
+  pivot_longer(cols = 1:5, names_to = "Domain", values_to = "Score") %>% 
+  mutate(Domain = as.factor(Domain))
+
+ggplot(domains_long, aes(Score)) +
+  geom_histogram(bins = 20) +
+  facet_wrap(~ Domain) +
+  labs(x = "Total Score") +
+  theme_fig()
+```
+
+```{r domains_gender, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Density of domain scores by gender"}
+# descriptive stats grouped by domain & gender
+describeBy(domains_long$Score, group = list(domains_long$Domain, domains_long$Gender))
+
+
+# plot of domain distributions & gender
+ggplot(domains_long, aes(x=Score, y=Domain)) + 
+  geom_density_ridges(aes(group = interaction(Domain, Gender), fill = Gender, linetype=Gender),
+               position = "identity",
+               alpha = 0.7,
+               size = 1) +
+  labs(x = "Score") +
+  scale_y_discrete(labels=c("Open-Mindedness", "Neg. Emotionality", 
+                            "Extraversion", "Conscientiousness", "Agreeability")) +
+  theme_fig()
+```
+
+
+
+### Test validity
+
+The `BFI2` is one of several personality inventories that aim to assess individuals on five hypothesized dimensions of personality: *Extraversion*, *Agreeability*, *Conscientiousness*, *Negative Emotionality* and *Open-Mindedness*. Definitions of *Extraversion* differ, but they usually revolve around sociability, assertiveness, proneness to experience positive emotions etc. *Agreeability* manifests in individuals for example as empathy and positive views of others [@cambridge]. An individual with high scores of *Consceintiousness* would be orderly, focused on rules and structure. *Negative Emotionality* is associated with characteristics related to dealing with negative emotions such as stress, anger, anxiety etc. *Open-Mindedness* is represented by characteristics such as unconventional behavior and openness to new experience [@hrebickova2020big]. The intended use for these specific scores was an *"estimation of basic psychometric properties of the Czech adaptation of the Big Five Inventory 2 (BFI-2)"* [@hrebickova2020big]. In general, Big Five scores could be used in a multitude of ways: by individuals as a means to self-discovery, by recruiters to select a candidate with suitable personality traits, by researchers to examine the psychological characteristics of groups and so on.The *Neuroticism*/*Negative Emotionality* scale is particularly beneficial in clinical psychology. Big Five inventories can also be utilized in career counseling (identifying personal strengths) or in candidate assessment (comparing candidate's profile to an ideal one). Apart from the broad 5 personality dimensions, Big Five inventories generally also contain more specific subscales (e.g. *Sociability*) which allow for more precise predictions of behavior.
+
+
+Since the BFI2 is a self-report inventory, evidence of *construct validity* could be obtained by examining rater-concordance between the respondents and their significant others, or between respondents and experts (psychiatrists, clinical psychologists). Test content validity could be determined by experts' ratings of the importance/suitability of the individual items.
+
+Evidence for the **convergent validity** of the Big Five could be obtained by correlating the domain scores with other psychological tests aiming to measure the same or at least similar constructs. One could for example compare the BFI2 results to reults of the NEO PI-R. Furthermore, one could for example expect the subscale of *Negative Emotionality* to correlate with measures of anxiety (e.g. Generalized Anxiety Disorder Assessment) and depression (Beck's Depression Inventory). *Open-Mindedness* should presumably correlate with measures of creativity etc.
+
+**Discriminant validity** of the BFI2 could be explored by comparing the results of its subscales to constructs, that should not be highly correlated to said subscales. Going back to the previously mentioned GAD and BDI as correlates of the *Negative Emotionality* subscale, one should make sure that the correlations aren't extremely high, and that the tests aren't measuring identical constructs.
+
+**Concurrent validity** could be assessed by comparing the BFI2 results with another personality test based on the Big Five model administrated at the same time.
+
+We could obtain evidence for the BIF2's **predictive validity** for example by correlating *Conscientiousness* scores of students with their future GPAs, or scores of employees with their future job performance. *Negative Emotionality* could serve as a predictor of certain clinical diagnoses (anxiety, personality disorders, mood disorders). *Open-Mindedness* could predict *"social and political liberalism"* [@cambridge]. *Extraversion* could correlate with psychological assessments of happiness or well-being [@cambridge].
+
+An example of evidence for **incremental validity** of the BFI2 could be the comparison of the predictive value of *Conscientiousness* scores (in terms of future job performance) to other measures of candidate assessment, such as an assessment centre.
+
+Because the BFI2 does not measure a single construct, its items should not all intercorrelate. Items should intercorrelate within the framework of the corresponding domain and facet. Although the item correlation heat-map is a bit cluttered, it shows 5 clusters roughly representing the five BFI2 domains. There is an overlap of *Extraversion* and *Open-Mindedness* items. Looking at the domain correlations confirms this, as there is a positive correlation ($\rho=0.29$) between *Extraversion* and *Open-Mindedness*. *Extraversion* is also negatively correlated to *Negative Emotionality* ($\rho=-0.32$), which is the strongest inter-factor correlation. Correlation heatmaps for the respective dimensions show that there are a few 'unexpected' high correlations -- *Respectfulness* correlates with *Compassion* (*Agreeability*), *Responsibility* correlates with *Organization* (*Conscientiousness*), *Depression* correlates with *Anxiety* (*Negative Emotionality*).
+
+In the *Extraversion* domain, the highest correlation ($\rho=.72$) is between items `iEscb31r` (*"Považuji se za někoho, kdo je někdy plachý, introvertní."*) and `iEscb16r` (*"Považuji se za někoho, kdo bývá tichý."*), which is quite understandable, since they both represent the *Sociability* facet. This domain is the only one where the strongest correlations correspond exactly to the intended facets.
+
+
+The highest correlation ($\rho=.62$) within the *Agreeability* domain is between items `iAmcp17r` (*"Považuji se za někoho, kdo s ostatními příliš nesoucítí."*) and `iAcmp02` (*"Považuji se za někoho, kdo je soucitný, má dobré srdce."*).
+
+
+The highest correlation ($\rho=.71$) within the *Conscientiousness* domain is between items `iCprd53` (*"Považuji se za někoho, kdo je vytrvalý, pracuje, dokud úkol nedokončí."*) and `iCprd38` (*"Považuji se za někoho, kdo je výkonný, věci dotahuje do konce."*), and also between items `iCorg48r` (*"Považuji se za někoho, kdo zanechává nepořádek, neuklízí."*) and  `iCorg33` (*"Považuji se za někoho, kdo udržuje věci úhledné a uspořádané."*).
+
+The highest correlation ($\rho=.77$) within the *Negative Emotionality* domain is between items `iNdep54` (*"Považuji se za někoho, kdo má sklon být skleslý, v depresi."*) and `iNdep39` (*"Považuji se za někoho, kdo je často smutný."*).
+
+The highest correlation ($\rho=.67$) within the *Open-Mindedness* domain is between items `iOcrt15` (*"Považuji se za někoho, kdo je vynalézavý, nachází důmyslné způsoby, jak něco dělat"*) and `iOcrt60` (*"Považuji se za někoho, kdo je originální, přichází s novými nápady."*).
+
+</br>
+
+```{r item_factor_corrplot, echo = FALSE}
+corP <- psych::polychoric(BFI2[1:60])
+
+# item correlation plot
+ShinyItemAnalysis::plot_corr(BFI2[1:60], cor = "polychoric",
+                             clust_method = "ward.D2",
+                             n_clust = 5,
+                             shape = 'square',
+                            line_col = 'red',
+                            fill = 'red',
+                            fill_alpha = 0.1) +
+  theme(axis.text.x.top = element_text(size=7),
+        axis.text = element_text(size=7)) +
+  labs(title = "Item correlation plot")
+
+
+# factor correlation plot
+ShinyItemAnalysis::plot_corr(domain_scores[1:5],
+                             cor = "spearman",
+                             shape = 'square',
+                             labels = TRUE,
+                             labels_size = 4) +
+  labs(title = "Factor correlation plot")
+```
+
+
+```{r domain_corrplots, echo = FALSE}
+
+cp_e <- plot_corr(BFI2_e, 
+              cor = 'polychoric', 
+               clust_method = 'ward.D2', 
+               n_clust = 3, 
+               shape = 'square', 
+               labels = TRUE, 
+               labels_size = 2.5, 
+               line_col = 'red', 
+               fill = 'red', 
+               fill_alpha = 0.1) +
+  labs(title = "Extraversion correlation plot")
+ 
+cp_a <- plot_corr(BFI2_a, 
+              cor = 'polychoric', 
+               clust_method = 'ward.D2', 
+               n_clust = 3, 
+               shape = 'square', 
+               labels = TRUE, 
+               labels_size = 2.5, 
+               line_col = 'red', 
+               fill = 'red', 
+               fill_alpha = 0.1) +
+  labs(title = "Agreeability correlation plot")
+
+cp_c <- plot_corr(BFI2_c, 
+              cor = 'polychoric', 
+               clust_method = 'ward.D2', 
+               n_clust = 3, 
+               shape = 'square', 
+               labels = TRUE, 
+               labels_size = 2.5, 
+               line_col = 'red', 
+               fill = 'red', 
+               fill_alpha = 0.1) +
+  labs(title = "Conscientiousness correlation plot")
+
+cp_n <- plot_corr(BFI2_n, 
+              cor = 'polychoric', 
+               clust_method = 'ward.D2', 
+               n_clust = 3, 
+               shape = 'square', 
+               labels = TRUE, 
+               labels_size = 2.5, 
+               line_col = 'red', 
+               fill = 'red', 
+               fill_alpha = 0.1) +
+  labs(title = "Neg. Emotionality correlation plot")
+
+cp_o <- plot_corr(BFI2_o, 
+              cor = 'polychoric', 
+               clust_method = 'ward.D2', 
+               n_clust = 3, 
+               shape = 'square', 
+               labels = TRUE, 
+               labels_size = 2.5, 
+               line_col = 'red', 
+               fill = 'red', 
+               fill_alpha = 0.1) +
+  labs(title = "Open-Mindedness correlation plot")
+
+grid.arrange(cp_e, cp_a, nrow = 1)
+grid.arrange(cp_c, cp_n, nrow = 1)
+print(cp_o)
+```
+
+
+The dendrogram for the whole inventory is rather complex, but it indicates there are 3 large clusters: 1. **Extraversion** and **Open-mindedness**, 2. **Conscientiousness** and **Agreeability**, 3. **Negative Emotionality**. These results correspond to the previous correlation plots. 
+
+</br>
+
+```{r clust_an}
+cl <- hclust(as.dist(1 - corP$rho), method = "ward.D2")
+
+
+ggdendrogram(cl) +
+  theme_fig(base_size = 15) +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1),
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank())
+```
+
+
+The Kaiser-Meyer-Olkin test reulted in MSA = $0.88$, which can be interpreted as good. The scree plot shows one large factor with an eigenvalue greater than 1, the parallel analysis suggests a 3-factor solution. I used the weighted least squares method of estimation (ordinal data) and a varimax rotation (assuming uncorrelated factors) fitting a 3- and 1-factor solutions. Based on the comparison of the fit indices for both solutions, the 3-factor solution seems to be a better option. 
+
+</br>
+
+```{r fact_an}
+cor_e <- psych::polychoric(BFI2_e)
+
+psych::KMO(cor_e$rho)
+
+psych::cortest.bartlett(cor_e$rho, n = 1733)
+
+ev <- eigen(cor_e$rho)
+ev$values
+
+set.seed(123)
+fa.parallel(cor_e$rho, n.obs = 1733, fa = "fa")
+
+# 3 factors
+fit3 <- fa(cor_e$rho, n.obs = 1733, nfactors = 3, fm = "wls", rotate = "varimax")
+
+print(fit3, digits=2, cutoff=0.3, sort = TRUE)
+
+loads3 <- fit3$loadings
+
+fa.diagram(loads3)
+
+# 1 factor
+fit1 <- fa(cor_e$rho, n.obs = 1733, nfactors = 1, fm = "wls", rotate = "varimax")
+
+print(fit1, digits=2, cutoff=0.3, sort = TRUE)
+
+loads1 <- fit1$loadings
+
+fa.diagram(loads1)
+
+# fit indices
+fit1[c("TLI", "RMSEA", "BIC")]
+fit3[c("TLI", "RMSEA", "BIC")]
+```
+
+
+
+### Test reliability
+
+I computed estimates of split-half reliability for each domain separately. The first-second and even-odd methods separate the domains so that the domain facets are equally represented in both groups -- for **Agreeability** and **Open-Mindedness** these methods also yield equal estimates. Relatively mild differences between the estimates of the first two methods can be found in the other domains -- lower first-second estimates could be explained by respondents being more tired while answering the second half of items. All of the average split-half estimates are higher than $0.8$, which can be interpreted as an overall good split-half reliability of the questionnaire with regards to its domains. **Agreeability** has the lowest split-half reliability estimates, whereas **Negative Emotionality** and **Extraversion** seem to yield the highest estimates.
+
+</br>
+
+```{r split_half_extraversion, include=FALSE}
+# EXTRAVERSION
+BFI2_e <- BFI2[, seq(1, 56, 5)]
+
+# first-second half split
+e1 <- BFI2_e[, 1:6]
+e2 <- BFI2_e[, 7:12]
+# total score calculation
+ts1 <- rowSums(e1)
+ts2 <- rowSums(e2)
+# correlation
+cor.x <- cor(ts1, ts2, method = "spearman")
+# apply Spearman-Brown formula to estimate reliability
+(rel.x_e_half <- 2 * cor.x / (1 + cor.x))
+
+# even-odd half split
+e1 <- BFI2_e[, seq(1, 12, 2)]
+e2 <- BFI2_e[, seq(2, 12, 2)]
+# total score calculation
+ts1 <- rowSums(e1)
+ts2 <- rowSums(e2)
+# correlation
+cor.x <- cor(ts1, ts2, method = "spearman")
+# apply Spearman-Brown formula to estimate reliability
+(rel.x_e_even_odd <- 2 * cor.x / (1 + cor.x))
+
+# average of all possible split-halves
+split <- psych::splitHalf(BFI2_e, raw = TRUE)
+(rel.x_e_avg <- mean(split$raw))
+
+# worst split
+(rel.x_e_worst <- min(split$raw))
+
+# best split
+(rel.x_e_best <- max(split$raw))
+
+e_split_half <- round(c(rel.x_e_half, rel.x_e_even_odd, rel.x_e_avg, rel.x_e_worst, rel.x_e_best), digits=4)
+```
+
+```{r split_half_agreeability, include = FALSE}
+# AGREEABILITY
+BFI2_a <- BFI2[, seq(2, 57, 5)]
+
+# first-second half split
+a1 <- BFI2_a[, 1:6]
+a2 <- BFI2_a[, 7:12]
+# total score calculation
+ts1 <- rowSums(a1)
+ts2 <- rowSums(a2)
+# correlation
+cor.x <- cor(ts1, ts2, method = "spearman")
+# apply Spearman-Brown formula to estimate reliability
+(rel.x_a_half <- 2 * cor.x / (1 + cor.x))
+
+# even-odd half split
+e1 <- BFI2_a[, seq(1, 12, 2)]
+e2 <- BFI2_a[, seq(2, 12, 2)]
+# total score calculation
+ts1 <- rowSums(a1)
+ts2 <- rowSums(a2)
+# correlation
+cor.x <- cor(ts1, ts2, method = "spearman")
+# apply Spearman-Brown formula to estimate reliability
+(rel.x_a_even_odd <- 2 * cor.x / (1 + cor.x))
+
+# average of all possible split-halves
+split <- psych::splitHalf(BFI2_a, raw = TRUE, brute = TRUE)
+(rel.x_a_avg <- mean(split$raw))
+
+# worst split
+(rel.x_a_worst <- min(split$raw))
+
+# best split
+(rel.x_a_best <- max(split$raw))
+
+a_split_half <- round(c(rel.x_a_half, rel.x_a_even_odd, rel.x_a_avg, rel.x_a_worst, rel.x_a_best), digits=4)
+```
+
+```{r split_half_conscientiousness, include = FALSE}
+# CONSCIENTIOUSNESS
+BFI2_c <- BFI2[, seq(3, 58, 5)]
+
+# first-second half split
+c1 <- BFI2_c[, 1:6]
+c2 <- BFI2_c[, 7:12]
+# total score calculation
+ts1 <- rowSums(c1)
+ts2 <- rowSums(c2)
+# correlation
+cor.x <- cor(ts1, ts2, method = "spearman")
+# apply Spearman-Brown formula to estimate reliability
+(rel.x_c_half <- 2 * cor.x / (1 + cor.x))
+
+# even-odd half split
+c1 <- BFI2_c[, seq(1, 12, 2)]
+c2 <- BFI2_c[, seq(2, 12, 2)]
+# total score calculation
+ts1 <- rowSums(c1)
+ts2 <- rowSums(c2)
+# correlation
+cor.x <- cor(ts1, ts2, method = "spearman")
+# apply Spearman-Brown formula to estimate reliability
+(rel.x_c_even_odd <- 2 * cor.x / (1 + cor.x))
+
+# average of all possible split-halves
+split <- psych::splitHalf(BFI2_c, raw = TRUE, brute = TRUE)
+(rel.x_c_avg <- mean(split$raw))
+
+# worst split
+(rel.x_c_worst <- min(split$raw))
+
+# best split
+(rel.x_c_best <- max(split$raw))
+
+c_split_half <- round(c(rel.x_c_half, rel.x_c_even_odd, rel.x_c_avg, rel.x_c_worst, rel.x_c_best), digits=4)
+```
+
+```{r split_half_neg.emotionality, include = FALSE}
+# NEGATIVE EMOTIONALITY
+BFI2_n <- BFI2[, seq(4, 59, 5)]
+
+# first-second half split
+n1 <- BFI2_n[, 1:6]
+n2 <- BFI2_n[, 7:12]
+# total score calculation
+ts1 <- rowSums(n1)
+ts2 <- rowSums(n2)
+# correlation
+cor.x <- cor(ts1, ts2, method = "spearman")
+# apply Spearman-Brown formula to estimate reliability
+(rel.x_n_half <- 2 * cor.x / (1 + cor.x))
+
+# even-odd half split
+n1 <- BFI2_n[, seq(1, 12, 2)]
+n2 <- BFI2_n[, seq(2, 12, 2)]
+# total score calculation
+ts1 <- rowSums(n1)
+ts2 <- rowSums(n2)
+# correlation
+cor.x <- cor(ts1, ts2, method = "spearman")
+# apply Spearman-Brown formula to estimate reliability
+(rel.x_n_even_odd <- 2 * cor.x / (1 + cor.x))
+
+# average of all possible split-halves
+split <- psych::splitHalf(BFI2_n, raw = TRUE, brute = TRUE)
+(rel.x_n_avg <- mean(split$raw))
+
+# worst split
+(rel.x_n_worst <- min(split$raw))
+
+# best split
+(rel.x_n_best <- max(split$raw))
+
+n_split_half <- round(c(rel.x_n_half, rel.x_n_even_odd, rel.x_n_avg, rel.x_n_worst, rel.x_n_best), digits=4)
+```
+
+```{r split_half_open_mindedness, include = FALSE}
+# OPEN-MINDEDNESS
+BFI2_o <- BFI2[, seq(5, 60, 5)]
+
+# first-second half split
+o1 <- BFI2_o[, 1:6]
+o2 <- BFI2_o[, 7:12]
+# total score calculation
+ts1 <- rowSums(o1)
+ts2 <- rowSums(o2)
+# correlation
+cor.x <- cor(ts1, ts2, method = "spearman")
+# apply Spearman-Brown formula to estimate reliability
+(rel.x_o_half <- 2 * cor.x / (1 + cor.x))
+
+# even-odd half split
+n1 <- BFI2_o[, seq(1, 12, 2)]
+n2 <- BFI2_o[, seq(2, 12, 2)]
+# total score calculation
+ts1 <- rowSums(o1)
+ts2 <- rowSums(o2)
+# correlation
+cor.x <- cor(ts1, ts2, method = "spearman")
+# apply Spearman-Brown formula to estimate reliability
+(rel.x_o_even_odd <- 2 * cor.x / (1 + cor.x))
+
+# average all possible split-halves
+split <- psych::splitHalf(BFI2_o, raw = TRUE, brute = TRUE)
+(rel.x_o_avg <- mean(split$raw))
+
+# worst split
+split <- psych::splitHalf(BFI2_o, raw = TRUE, brute = TRUE)
+(rel.x_o_worst <- min(split$raw))
+
+# best split
+split <- psych::splitHalf(BFI2_o, raw = TRUE, brute = TRUE)
+(rel.x_o_best <- max(split$raw))
+
+o_split_half <- round(c(rel.x_o_half, rel.x_o_even_odd, rel.x_o_avg, rel.x_o_worst, rel.x_o_best), digits=4)
+```
+
+
+```{r split_half_estimates}
+df <- data.frame(e_split_half, a_split_half, c_split_half, n_split_half, o_split_half, row.names=c("First-second", "Even-odd", "Average", "Worst", "Best"))
+colnames(df) <- c("Extraversion", "Agreeability", "Conscientiousness", "Neg. Emotionality", "Open-Mindedness")
+kable(df, booktabs = T, caption = "Split-half Estimates") %>% 
+  kable_styling()
+```
+
+
+The next data frame includes the confidence intervals for Cronbach's $\alpha$ and McDonald's $\omega$ (total). Since the estimates for all domains $> 0.75$, we can interpret their reliability as excellent. The average $\alpha$ value ($\alpha = 0.85$) is slightly lower than the average $\omega$ ($\omega = 0.88$).
+
+</br>
+```{r internal_consistency_est, echo = FALSE}
+df.list <- list(BFI2_e, BFI2_a, BFI2_c, BFI2_n, BFI2_o)
+
+alpha <- lapply(df.list, psychometric::alpha)
+
+ca_ci <- rbind(
+  alpha.CI(alpha[[1]], N = nrow(BFI2_e), k = ncol(BFI2_e), level= 0.95),
+  alpha.CI(alpha[[2]], N = nrow(BFI2_a), k = ncol(BFI2_a), level= 0.95),
+  alpha.CI(alpha[[3]], N = nrow(BFI2_c), k = ncol(BFI2_c), level= 0.95),
+  alpha.CI(alpha[[4]], N = nrow(BFI2_n), k = ncol(BFI2_n), level= 0.95),
+  alpha.CI(alpha[[5]], N = nrow(BFI2_o), k = ncol(BFI2_o), level= 0.95)
+)
+
+res <- lapply(df.list, omega, plot = FALSE)
+
+omega <- rbind(res[[1]]$omega.tot,
+      res[[2]]$omega.tot,
+      res[[3]]$omega.tot,
+      res[[4]]$omega.tot,
+      res[[5]]$omega.tot
+)
+
+res <- cbind(ca_ci, omega)
+row.names(res) <- c("Extraversion", "Agreeability", "Conscientiousness", "Neg. Emotionality", "Open-Mindedness")
+kable(res, booktabs = T, caption = "Internal Consistency Estimates") %>% 
+  kable_styling()
+```
+
+
+One example of another reliability estimate is *test-retest reliability*. For *test-retest reliability*, we would need to collect data with the same inventory from the same respondent sample after a certain period of time (3 months are usually recommended). The estimate of reliability would correspond to the correlation between the respondent scores from the first and second administration. Theoretically, only the measurement error should change.
+A second example could be *parallel forms* reliability, which, similarly to *test-retest* requires another administration on the same subjects. As the name suggests, this method of estimating reliability relies on the administration of a parallel form of the inventory. Both administrations should have the same conditions, the test/inventory forms should have the same kinds of items of equal difficulty. In this specific case, one could use another but very similar inventory based on the Big Five model of personality.
+Lastly, we could estimate *inter-rater* reliability if we had ratings from independent raters -- significant others, clinical psychologists, psychiatrist etc. -- which we could compare with the test results.
+
+If we doubled the original number of items ($12$), reliability would reach $0.92$, meaning it would increase by approximately $0.6$. In order to get a reliability of $0.9$, we would have to add six more items, resulting in $18$ items overall.
+
+</br>
+
+```{r criterion, include=FALSE}
+rel.original <- psychometric::alpha(BFI2_e)
+
+# number of items in original data
+items.original <- ncol(BFI2_e)
+
+# number of items in new data
+items.new <- 2 * items.original
+# ratio of tests lengths
+m <- items.new / items.original
+# determining reliability
+SBrel(Nlength = m, rxx = rel.original)
+
+# desired reliability
+rel.new <- 0.9
+# determining test length
+(m.new <- SBlength(rxxp = rel.new, rxx = rel.original))
+# number of required items
+ceiling(m.new * items.original)
+```
+
+
+</br>
+
+### Item analysis
+
+
+```{r item_analysis_intro, echo = FALSE}
+measures <- c("Mean", "SD", "Difficulty", "RIR", "RIT", "ULI", "gULI", "Alpha.drop")
+it_an <- lapply(df.list, ItemAnalysis)
+it_an <- lapply(it_an, round, digits = 4)
+```
+
+#### Extraversion
+
+Overall, it can be stated that the difficulty (popularity) of all the **Extraversion** items does not exceed the range of $[0.4, 0.7]$, which can be interpreted as acceptable. Similarly, the upper-lower index (ULI) never drops below the $0.2$ threshold, which means that all items differentiate *relatively* well between respondents with a high and low **Extraversion** score.
+
+Item number 11 (`iEenl11r`) has the highest difficulty and a low value of ULI. Furthermore, the `Alpha.drop` value for this item indicates that it lowers the reliability (estimated with Cronbach's $\alpha$) of the domain. The wording of this item is: *"Považuji se za někoho, kdo zřídkakdy pociťuje vzrušení a nadšení pro věc."* Since this item is already reverse-coded, one could conclude that most respondents disagreed with this statement, and that it does not differentiate between introverts and extraverts as much as some of the other items. Perhaps the wording of the item invokes a rather negative self-image that most people, even introverts, are reluctant to accept (social desirability). This item might also be better at targeting neurotic traits (depression, anxiety...) than introversion. 
+
+In contrast, item number 31 (*"Považuji se za někoho, kdo je někdy plachý, introvertní."*) has the lowest difficulty (popularity). Again, this is a reverse-coded item, so most respondents agreed with this statement. I would hypothesize that the wording is too vague, maybe it would be better to avoid words such as *sometimes* that leave too much space for subjective interpretation. 
+
+Item 16 (*"Považuji se za někoho, kdo bývá tichý."*) is the best at discriminating between extraverts and introverts, item 26 (*"Považuji se za někoho, kdo je méně činorodý než ostatní."*) is the worst. Item 26 could be problematic due to social desirability. Lastly, item 36 (*"Považuji se za někoho, kdo pokládá za obtížné ovlivňovat druhé."*) also seems to decrease the reliability of this scale. Perhaps this item has more to do with traits like machiavellianism and narcissism than extraversion.
+
+</br>
+
+```{r it_an_extraversion}
+datatable(it_an[[1]][measures], options = list(pageLength = 12, lengthMenu = c(12), paging = FALSE, dom = 't'), 
+          caption = htmltools::tags$caption( style = 'caption-side: top; text-align: left; color:gray; font-size:100% ;','Traditional Item Analysis: Extraversion')) %>%
+  formatStyle(columns = "Difficulty", 
+              backgroundColor = styleInterval(c(0.1, 0.9), c("blue", NA, "red"))) %>% 
+  formatStyle(columns = "RIR",
+              backgroundColor = styleInterval(c(0.2), c("blue", NA))) %>% 
+  formatStyle(columns = "Alpha.drop",
+              backgroundColor = styleInterval(c(psychometric::alpha(BFI2_e)), c(NA, "pink"))) %>% 
+  formatStyle(columns = "ULI",
+              backgroundColor = styleInterval(c(0.2), c("pink", NA))) %>% 
+  formatStyle(columns = "Difficulty",
+              color = styleEqual(c(min(it_an[[1]]['Difficulty']), max(it_an[[1]]['Difficulty'])), c("blue", "red"))) %>% 
+  formatStyle(columns = "ULI",
+              color = styleEqual(c(min(it_an[[1]]['ULI']), max(it_an[[1]]['ULI'])), c("blue", "red")))
+
+DDplot(
+  Data = BFI2_e, discrim = "ULI", maxscore = 5, minscore = 1)
+```
+
+
+#### Agreeability 
+
+
+The difficulty and ULI of all **Agreeability** items are in an acceptable range and none of the items decrease the scale's reliability.
+
+Item 42 (*"Považuji se za někoho, kdo je vůči záměrům ostatních nedůvěřivý."*) has the lowest difficulty (popularity) and a relatively low ULI. Since it is a reverse-coded item, most respondents agreed with this statement. One possible explanation could be the negative connotation of the word *důvěřivý*. Hypothetically, this effect could also be explained sociologically (lower trust in post-communist countries).
+
+Item 52 (*"Považuji se za někoho, kdo je k ostatním slušný a zdvořilý."*) has the highest popularity and the lowest ability to discriminate between agreeable and non-agreeable respondents. This could be explained by social desirability.
+
+Item 47 (*"Považuji se za někoho, kdo dokáže být chladný a bezcitný."*) has the highest ULI and thus, it is best at differentiating between agreeable and non-agreeable respondents.
+</br>
+
+```{r it_an_agreeability}
+datatable(it_an[[2]][measures], options = list(pageLength = 12, lengthMenu = c(12), paging = FALSE, dom = 't'), 
+          caption = htmltools::tags$caption( style = 'caption-side: top; text-align: left; color:gray; font-size:100% ;','Traditional Item Analysis: Agreeability')) %>%
+  formatStyle(columns = "Difficulty", 
+              backgroundColor = styleInterval(c(0.1, 0.9), c("blue", NA, "red"))) %>% 
+  formatStyle(columns = "RIR",
+              backgroundColor = styleInterval(c(0.2), c("blue", NA))) %>% 
+  formatStyle(columns = "Alpha.drop",
+              backgroundColor = styleInterval(c(psychometric::alpha(BFI2_a)), c(NA, "pink"))) %>% 
+  formatStyle(columns = "ULI",
+              backgroundColor = styleInterval(c(0.2), c("pink", NA))) %>% 
+  formatStyle(columns = "Difficulty",
+              color = styleEqual(c(min(it_an[[2]]['Difficulty']), max(it_an[[2]]['Difficulty'])), c("blue", "red"))) %>% 
+  formatStyle(columns = "ULI",
+              color = styleEqual(c(min(it_an[[2]]['ULI']), max(it_an[[2]]['ULI'])), c("blue", "red")))
+
+DDplot(
+  Data = BFI2_a, discrim = "ULI", maxscore = 5, minscore = 1)
+```
+
+
+#### Conscientiousness
+
+None of the items seem to be extremely faulty.
+
+Item 8 (*"Považuji se za někoho, kdo má sklon být líný."*) has the lowest difficulty (popularity). As it is a reverse-coded item, most respondents agreed with the original statement. Perhaps this could be explained sociologically -- either by the age range of the sample ($15-26$) or by an increased societal pressure on productivity.
+
+
+Item 43 (*"Považuji se za někoho, kdo je důvěryhodný, vždy se na něj dá spolehnout."*) has the highest popularity and the lowest ability to differentiate between conscientious and non-conscientious respondents, probably due to social desirability.
+
+Item 18 (*"Považuji se za někoho, kdo je systematický, udržuje ve věcech pořádek."*) has the highest ULI and is therefore the best at discriminating between conscientious and non-conscientious respondents.
+
+</br>
+
+```{r it_an_conscientiousness}
+datatable(it_an[[3]][measures], options = list(pageLength = 12, lengthMenu = c(12), paging = FALSE, dom = 't'), 
+          caption = htmltools::tags$caption( style = 'caption-side: top; text-align: left; color:gray; font-size:100% ;','Traditional Item Analysis: Conscientiousness')) %>%
+  formatStyle(columns = "Difficulty", 
+              backgroundColor = styleInterval(c(0.1, 0.9), c("blue", NA, "red"))) %>% 
+  formatStyle(columns = "RIR",
+              backgroundColor = styleInterval(c(0.2), c("blue", NA))) %>% 
+  formatStyle(columns = "Alpha.drop",
+              backgroundColor = styleInterval(c(psychometric::alpha(BFI2_c)), c(NA, "pink"))) %>% 
+  formatStyle(columns = "ULI",
+              backgroundColor = styleInterval(c(0.2), c("pink", NA))) %>% 
+  formatStyle(columns = "Difficulty",
+              color = styleEqual(c(min(it_an[[3]]['Difficulty']), max(it_an[[3]]['Difficulty'])), c("blue", "red"))) %>% 
+  formatStyle(columns = "ULI",
+              color = styleEqual(c(min(it_an[[3]]['ULI']), max(it_an[[3]]['ULI'])), c("blue", "red")))
+
+DDplot(
+  Data = BFI2_c, discrim = "ULI", maxscore = 5, minscore = 1)
+```
+
+
+#### Negative Emotionality
+
+All of the items seem to function relatively well.
+
+Item 9 (*"Považuji se za někoho, kdo zůstává optimistický i po nějakém nezdaru."*) has the lowest difficulty, probably due to social desirability.
+
+Item 34 (*"Považuji se za někoho, kdo si hodně dělá starosti."*) has the highest difficulty -- perhaps because of the vague phrasing.
+
+Item 29 (*"Považuji se za někoho, kdo je emočně vyrovnaný, jen tak něco ho nerozhodí."*) has the highest ULI, it is best at discriminating between respondents with high and low *Negative Emotionality* scores.
+
+Item 44 (*"Považuji se za někoho, kdo drží své emoce pod kontrolou."*) has the lowest ULI, maybe because it relies too heavily on individual understanding of *control*.
+
+</br>
+
+```{r it_an_neg.emotionality}
+datatable(it_an[[4]][measures], options = list(pageLength = 12, lengthMenu = c(12), paging = FALSE, dom = 't'), 
+          caption = htmltools::tags$caption( style = 'caption-side: top; text-align: left; color:gray; font-size:100% ;','Traditional Item Analysis: Neg. Emotionality')) %>%
+  formatStyle(columns = "Difficulty", 
+              backgroundColor = styleInterval(c(0.1, 0.9), c("blue", NA, "red"))) %>% 
+  formatStyle(columns = "RIR",
+              backgroundColor = styleInterval(c(0.2), c("blue", NA))) %>% 
+  formatStyle(columns = "Alpha.drop",
+              backgroundColor = styleInterval(c(psychometric::alpha(BFI2_n)), c(NA, "pink"))) %>% 
+  formatStyle(columns = "ULI",
+              backgroundColor = styleInterval(c(0.2), c("pink", NA))) %>% 
+  formatStyle(columns = "Difficulty",
+              color = styleEqual(c(min(it_an[[4]]['Difficulty']), max(it_an[[4]]['Difficulty'])), c("blue", "red"))) %>% 
+  formatStyle(columns = "ULI",
+              color = styleEqual(c(min(it_an[[4]]['ULI']), max(it_an[[4]]['ULI'])), c("blue", "red")))
+
+DDplot(
+  Data = BFI2_n, discrim = "ULI", maxscore = 5, minscore = 1)
+```
+
+
+
+#### Open-Mindedness
+
+Again, all of the items seem to function relatively well.
+
+Item 5 (*"Považuji se za někoho, kdo se o umění příliš nezajímá."*) has the lowest difficulty (popularity), maybe due to social desirability.
+
+Item 40 (*"Považuji se za někoho, kdo je přemýšlivý, nad věcmi uvažuje do hloubky."*) has the highest difficulty and the lowest ULI -- again, I would say the phrasing is quite vague and general enough to apply to most people.
+
+Item 20 (*"Považuji se za někoho, kdo je fascinován uměním, hudbou a literaturou."*) has the highest ULI, so it is the best at differentiating between open-minded and non-open-minded respondents.
+
+</br>
+
+```{r it_an_open_mindedness}
+datatable(it_an[[5]][measures], options = list(pageLength = 12, lengthMenu = c(12), paging = FALSE, dom = 't'), 
+          caption = htmltools::tags$caption( style = 'caption-side: top; text-align: left; color:gray; font-size:100% ;','Traditional Item Analysis: Open-Mindedness')) %>%
+  formatStyle(columns = "Difficulty", 
+              backgroundColor = styleInterval(c(0.1, 0.9), c("blue", NA, "red"))) %>% 
+  formatStyle(columns = "RIR",
+              backgroundColor = styleInterval(c(0.2), c("blue", NA))) %>% 
+  formatStyle(columns = "Alpha.drop",
+              backgroundColor = styleInterval(c(psychometric::alpha(BFI2_o)), c(NA, "pink"))) %>% 
+  formatStyle(columns = "ULI",
+              backgroundColor = styleInterval(c(0.2), c("pink", NA))) %>% 
+  formatStyle(columns = "Difficulty",
+              color = styleEqual(c(min(it_an[[5]]['Difficulty']), max(it_an[[5]]['Difficulty'])), c("blue", "red"))) %>% 
+  formatStyle(columns = "ULI",
+              color = styleEqual(c(min(it_an[[5]]['ULI']), max(it_an[[5]]['ULI'])), c("blue", "red")))
+
+DDplot(
+  Data = BFI2_o, discrim = "ULI", maxscore = 5, minscore = 1)
+```
+
+Item `iCprd08r` is the least difficult/popular item of the inventory. Most respondents tended to agree with the original statement (*"Považuji se za někoho, kdo má sklon být líný."*). Nonetheless, the slopes of the response curves indicate that respondents with a higher overall **Conscientiousness** score disagreed with the statement more often than respondents with lower **Conscientiousness** scores. The popularity of this item could be attributed to the low age distribution of the respondent sample.
+As we can see from the response curve for item `iArsp52` (*"Považuji se za někoho, kdo je k ostatním slušný a zdvořilý."*), answer 5 (*"Agree strongly"*) is selected more often by respondents with a higher total score (higher agreeability). However, it is also the most difficult/popular item with a low discrimination, which can be seen from the high option selection proportions for answers 4 (*"Agree a little."*) and 5 (*"Agree strongly"*) even in groups with low/lower total scores. 
+Item `iEscb16r` (*"Považuji se za někoho, kdo bývá tichý."*) is reversed, so respondents with higher total scores (higher extraversion) select answers 1 (*"Disagree strongly"*) and 2 (*"Disagree a little"*) more often than respondents with lower total scores and vice versa.
+
+</br>
+
+```{r distractor_analysis}
+#----- 
+# least difficult item
+plotDistractorAnalysis(BFI2_c, num.groups = 2, item = 2, multiple.answers = TRUE) +
+  labs(title = "iCprd08r (least difficult item, reversed)",
+       subtitle = '"Považuji se za někoho, kdo má sklon být líný."') +
+  theme(plot.subtitle = element_text(face = "italic"))
+
+DA <- DistractorAnalysis(BFI2_c, num.groups = 2, key = 5, p.table = TRUE)[[2]]
+dcast(as.data.frame(DA), response ~ score.level, sum, margins = TRUE, value.var = "Freq") %>% 
+  kable(booktabs = T, caption = "Response proportions for item iCprd08r") %>% 
+  kable_styling()
+#----- 
+# most difficult & worst discriminating item
+plotDistractorAnalysis(BFI2_a, num.groups = 3, item = 11, multiple.answers = TRUE) +
+  labs(title="iArsp52 (most difficult & \n worst discriminating item)",
+       subtitle='"Považuji se za někoho, kdo je k ostatním slušný a zdvořilý."') +
+  theme(plot.subtitle = element_text(face="italic"))
+
+DA <- DistractorAnalysis(BFI2_a, key = 5, num.groups = 3, p.table = TRUE)[[11]]
+
+dcast(as.data.frame(DA), response ~ score.level, sum, margins = TRUE, value.var = "Freq") %>% 
+  kable(booktabs = T, caption = "Response proportions for item iArsp52") %>% 
+  kable_styling()
+
+#----- 
+# best discriminating item
+plotDistractorAnalysis(BFI2_e, num.groups = 2, item = 4, multiple.answers = TRUE) +
+  labs(title="iEscb16r (best discriminating item, reversed)",
+       subtitle='"Považuji se za někoho, kdo bývá tichý."') +
+  theme(plot.subtitle = element_text(face="italic"))
+
+DA <- DistractorAnalysis(BFI2_e, key = 5, num.groups = 2, p.table = TRUE)[[4]]
+dcast(as.data.frame(DA), response ~ score.level, sum, margins = TRUE, value.var = "Freq") %>% 
+  kable(booktabs = T, caption = "Response proportions for item iEscb16r") %>% 
+  kable_styling()
+
+#----
+plotDistractorAnalysis(BFI2_e, num.groups = 2, item = 3, multiple.answers = TRUE) +
+  labs(title="iEenl11r",
+       subtitle='"Považuji se za někoho, kdo zřídkakdy pociťuje vzrušení a \n nadšení pro věc."') +
+  theme(plot.subtitle = element_text(face="italic"))
+
+DA <- DistractorAnalysis(BFI2_e, key = 5, num.groups = 2, p.table = TRUE)[[3]]
+
+dcast(as.data.frame(DA), response ~ score.level, sum, margins = TRUE, value.var = "Freq") %>% 
+  kable(booktabs = T, caption = "Response proportions for item iEenl11r") %>% 
+  kable_styling()
+```
+
+
+Below I'm working with the reversed item `iEscb16r` (*"Považuji se za někoho, kdo bývá tichý."*). I decided to choose a cumulative logit model, since the `BFI2` consists of Likert scale items. 
+A respondent with a Z-score of $-1.35$ (below average extraversion) has a $0.5$ probability of answering at least *"Agree a little"*, respondent with a Z-score of $-0.24$ (below average extraversion) has a $0.5$ probability of answering at least *"Neutral; no opinion"*, respondent with a Z-score of $0.41$ (above average extraversion) has a $0.5$ probability of answering at least *"Disagree a little"*, and respondent with a Z-score of $1.34$ (above average extraversion) has a $0.5$ probability of answering at least *"Disagree strongly"*. With each unit increase of the Z-score, the log-odds of choosing the given answer or a lower one, increases by the ratio of $2.18$.
+</br>
+
+```{r polytomous, echo=TRUE}
+# recoding data
+BFI2_e_rec <- BFI2_e - 1
+
+# z-score
+zscore <- scale(rowSums(BFI2_e_rec))
+
+# create a factor variable
+maxval <- max(BFI2_e_rec[, 4])
+BFI2_e_rec[, 4] <- ordered(factor(BFI2_e_rec[, 4], levels = 0:maxval))
+
+# cumulative logit model for item 16
+fit.cum <- vglm(BFI2_e_rec[, 4] ~ zscore,
+                family = cumulative(reverse = TRUE, parallel = TRUE))
+
+# coefficients and SE
+coef(fit.cum)
+sqrt(diag(vcov(fit.cum)))
+
+# IRT parametrization
+c(-coef(fit.cum)[1:4] / coef(fit.cum)[5], coef(fit.cum)[5])
+msm::deltamethod(
+  list(~ -x1 / x5, ~ -x2 / x5, ~ -x3 / x5, ~ -x4 / x5, ~ x5),
+  mean = coef(fit.cum), cov = vcov(fit.cum)
+)
+```
+
+
+```{r polytomous_plots, echo=FALSE, fig.show="hold", out.width="50%"}
+pc1 <- plotCumulative(fit.cum, type = "cumulative") +
+  xlab("Z-score")
+pc2 <- plotCumulative(fit.cum, type = "category") +
+  xlab("Z-score")
+```
+
+
+
+</br>
+
+### Item response theory models
+
+#### Rasch model
+Model equation:
+$$
+\pi_{pi}=P(Y_{pi}=1|\theta_p)=\frac{exp(\theta_p-b_i)}{1+\exp(\theta_p-b_i)}
+$$
+
+* $\theta_p$ -- trait of person $p$
+
+* $\beta_i$ -- difficulty of item $i$, ability needed so that the probability of endorsing a given item is $50%$
+
+For the sake of simplicity I'm working with the **Extraversion** domain, which I binarized in order to fit the Rasch and 2PL model. Given the `coef()` output with classical intercept/slope parametrization, the ability variance is estimated at $2.0$ with a confidence interval of ($1.8$, $2.2$). With the IRT parametrization, we could say that the difficulty of item `iEscb31r`is estimated at $1.09$ (CI = $0.95$, $1.23$) -- meaning that a respondent would need extraversion about 1.1 SD above the mean to diagree with the statement *"Považuji se za někoho, kdo je někdy plachý, introvertní".* with a $50\%$ probability. The first respondent had an ability/extraversion of $1.47$ ($\pm 0.66$). The summary of the latent abilites shows that they are in accordance with the assumptions -- mean of $0$. The estimated discrimination of the Rasch model is equal to $1.2$. Item 7 (`iEsb31r`) was the most difficult item in the **Extraversion** domain as we can see on the Wright map. The difficulty of the domain seems quite balanced. Item `iEscb31r` provides the most information about high levels of extraversion, item `iEscb46` provides the most information about low levels of extraversion. The peak of the test information curve is around $\theta = 0$, meaning the test provides the most information about average levels of extraversion.
+
+</br>
+```{r irt_analysis_1PL_fit, results='hide'}
+# binarize data
+binarize <- function(x) {
+  ifelse(x %in% 4:5, 1, 0)
+}
+
+BFI2_e_bin <- data.frame(lapply(BFI2_e, binarize))
+
+# model fit
+fit_rasch <- mirt::mirt(BFI2_e_bin, model = 1,
+                        itemtype = "Rasch", SE = TRUE)
+```
+
+
+```{r irt_analysis_1PL}
+coef(fit_rasch, SE = TRUE)$GroupPars
+
+# IRT parametrization
+coef(fit_rasch, IRTpars = TRUE)$iEscb31r
+
+# ICCs
+plot(fit_rasch, type = "trace", facet_items = FALSE)
+
+# IICs
+plot(fit_rasch, type = "infotrace", facet_items = FALSE)
+
+# test information curve
+plot(fit_rasch, type = "info")
+```
+
+
+```{r irt_analysis_1PL_abil, echo=TRUE}
+# estimated latent abilities
+fs_SE <- fscores(fit_rasch, full.scores.SE = TRUE)
+fs_SE[1,]
+summary(fs_SE[, 1])
+sd(fs_SE[, 1])
+```
+
+
+```{r irt_analysis_1PL_wright}
+# Wright map
+b <- coef(fit_rasch, simplify = TRUE, IRTpars = TRUE)$items[, "b"]
+ggWrightMap(fs_SE[, 1], b)
+```
+
+
+#### 2PL IRT model
+Model equation:
+$$
+\pi_{pi}=P(Y_{pi}=1|\theta_p)=\frac{exp(a_i(\theta_p-b_i))}{1+\exp(a_i(\theta_p-b_i))}
+$$
+
+* $\theta_p$ -- trait of person $p$
+
+* $\beta_i$ -- difficulty of item $i$ (inflection point location)
+
+* $a_i$ -- item discrimination parameter (slope at inflection point)
+
+The ability variance is estimated at $1.0$. Item (`iEenl11r`) has an estimated difficulty of $-1.13$ (CI = $-1.41$, $-0.86$) and discriminability of $0.59$ (CI = $0.47$, $0.72$), so it is the least difficult item. The best discriminating item is `iEscb16r` with a discriminability of $2.5$ (CI = $2.1$. $2.8$). The ability of the first respondent is estimated at $0.77$ ($\pm 0.40$). The 2PL model is a better fit for the data than a Rasch model.
+</br>
+
+```{r irt_analysis_2PL_fit, results='hide'}
+fit_2PL <- mirt(BFI2_e_bin, model = 1, itemtype = "2PL", SE = TRUE)
+```
+
+
+```{r irt_analysis_2PL, message=FALSE, warning=FALSE}
+coef(fit_2PL, IRTpars = TRUE)
+
+# ICCs
+plot(fit_rasch, type = "trace", facet_items = FALSE)
+
+# IICs
+plot(fit_rasch, type = "infotrace", facet_items = FALSE)
+
+# test information curve
+plot(fit_rasch, type = "info")
+```
+
+
+```{r irt_analysis_2PL_abilities, echo = TRUE}
+# estimated latent abilities
+fs_SE <- fscores(fit_2PL, full.scores.SE = TRUE)
+head(fs_SE, n = 3)
+summary(fs_SE[, 1])
+sd(fs_SE[, 1])
+```
+
+
+```{r irt_analysis_2PL_anova}
+# comparison with Rasch model
+anova(fit_rasch, fit_2PL) %>% 
+  kable(booktabs = T, caption = "Comparison of Rasch and 2PL model") %>% 
+  kable_styling()
+```
+
+#### Cumulative logit models
+
+I decided to fit cumulative logit IRT models -- graded response model and graded ratings scale model -- since I'm working with ordinal items based on a Likert scale which also remains the same for all items.
+
+##### Graded ratings scale model equation:
+
+$$
+{\pi\ast}_{pik} = P(Y_{pi} \geq k|\theta_p) = \frac{\exp(a_i(\theta_p - (b_i + \lambda_k)))}{1 + \exp(a_i(\theta_p - (b_i + \lambda_k)))}
+$$
+
+* $\theta_p$ -- latent ability of respondent
+
+* $b_{i}$ -- item-specific locations
+
+* $\lambda_k$ -- category specific levels
+
+</br>
+
+```{r irt_analysis_cumul_grsm_fit, results = 'hide'}
+# GRSM
+fit_GRSM <- mirt::mirt(BFI2_e, model = 1, itemtype = "grsmIRT")
+```
+
+
+```{r irt_analysis_cumul_grsm_coef}
+coef(fit_GRSM, simplify = TRUE)
+```
+
+##### Graded response model equation:
+
+$$
+{\pi\ast}_{pik} = P(Y_{pi} \geq k|\theta_p) = \frac{\exp(a_i(\theta_p - b_{ik}))}{1 + \exp(a_i(\theta_p - b_{ik}))}
+$$
+
+* $\theta_p$ -- latent ability of respondent
+
+* $b_{ik}$ -- category difficulty parameters of item $i$ and for categories $k = 0,...,K_i$ ($K_i$ -- max. possible score for item $i$)
+
+</br>
+
+```{r irt_analysis_cumul_grm_fit, results='hide'}
+# GRM
+fit_GRM <- mirt::mirt(BFI2_e, model = 1, itemtype = "graded")
+```
+
+
+```{r irt_analysis_cumul_grm_coef}
+coef(fit_GRM, IRTpars = TRUE, simplify = TRUE)
+```
+
+The `coef()` output tells us that the best discriminating item is item `iEscb16r` ($2.34$).
+
+</br>
+
+```{r irt_analysis_cumul_anova}
+# model comparison
+anova(fit_GRM, fit_GRSM) %>% 
+  kable(booktabs = T, caption = "Comparison of GRM and GRSM model") %>% 
+  kable_styling()
+```
+
+It seems that the less restrictive model (GRM) is a better fit for this data. However, the BIC is higher for this model, which suggests that the more restrictive GRSM would be a better fit when penalizing for the number of estimated parameters.
+
+The **"Extrmt1"** coefficient indicates the level of extraversion needed in order to strongly disagree with a given item with a $50\%$ probability -- for example in order to strongly agree (reversed) with item `iEenl26r` (*"Považuji se za někoho, kdo je méně činorodý než ostatní."*), one would have to exhibit very low levels of extraversion ($-5.7$), meanwhile only slightly low levels of extraversion are required to strongly agree (reversed) with item `iEscb31r` (*"Považuji se za někoho, kdo je někdy plachý, introvertní."*; $-1.2$). The interpretation of the other "Extrmt" coefficients is similar, but they also include all the response categories below them -- **Extrmt4** indicates the required level of extraversion in order to select answers 1 through 4 (disagree strongly, disagree a little, neutral, agree a little) with a $50\%$ probability.
+
+I plotted the item response category characteristic curves for items `iEscb01`, `iEenl11r`, `iEscb16r`, `iEenl26r` and `iEscb31r`. Item `iEscb01` (*"Považuji se za někoho, kdo je společenský, družný."*) seems to be functioning very well -- response category 1 (strongly disagree) is monotonically decreasing with an increase in extraversion, while response category 5 (strongly agree) is monotonically increasing with increase in extraversion. The IRCCs of item `iEenl11r` (*"Považuji se za někoho, kdo zřídkadky pociťuje vzrušení a nadšení pro věc."*) look quite different, although the overall trend is similar -- this item requires the lowest extraversion levels in order to select options neutral, agree or strongly agree with a $50\%$ probability. As mentioned above, very low levels of extraversion are required for strongly endorsing item `iEenl26r`. The IRCCs of item `iEscb16r` (*"Považuji se za někoho, kdo bývá tichý."*) reflect its high discriminability. Finally, the plot for item `iEscb31r` shows a slow and gradual decline of the response category 1 curve.
+
+The test information curve is slightly leaning to the left, meaning it provides more information about respondents with lower levels of extraversion. The item information curves suggest that item `iEscb16r` provides the most information, especially around average extraversion levels, meanwhile item `iEenl11r` isn't very informative at all.
+
+The estimated extraversion for the first respondent is $\theta = -2.5 (\pm 0.39)$, which is quite low. The correlation between ability estimates and estimates based on standardized total scores is $0.99$.
+
+</br>
+
+```{r irt_analysis_grm, message=FALSE, warning=FALSE}
+fit_grm <- ltm::grm(BFI2_e)
+coef(fit_grm)
+
+# IRCC
+plot(fit_grm, item = 1)
+plot(fit_grm, item = 3)
+plot(fit_grm, item = 4)
+plot(fit_grm, item = 6)
+plot(fit_grm, item = 7)
+
+# TIF
+plot(fit_grm, type = "IIC", items = 0)
+plot(fit_grm, type = "IIC")
+```
+
+
+```{r irt_analysis_grm_abilities, echo = TRUE}
+# estimated abilities
+est <- ltm::factor.scores(fit_grm)
+est$score.dat$z1[1]
+est$score.dat$se.z1[1]
+
+fs <- mirt::fscores(fit_GRSM)
+sts <- as.vector(scale(rowSums(BFI2_e)))
+```
+
+
+```{r irt_analysis_grm_score_plot}
+# plot
+plot(fs ~ sts, xlab = "Standardized total score", ylab = "Factor score")
+```
+
+
+```{r irt_analysis_grm_corr, echo = TRUE}
+# correlation between ability estimates and estimates based on standardized total scores
+cor(fs, sts)
+```
+
+
+### Differential item functioning
+
+DIF analysis is important in test validation, because it takes into account that groups may differ in overall ability and allows us to examine potential differences on the level of individual items. It can uncover unfair items or in case of tests that are meant to function differently for different groups, confirm their instructional sensitivity. There are three variables that could technically be used for DIF testing -- gender, age (converted to age groups) and education. I'm going to work with the **Agreeability** domain of the inventory.
+
+There are $1003$ women and $730$ men in the `BFI2´ dataset. As can be seen in the summary statistic, the total agreeability scores seem slightly different for male and female participants with female participants scoring higher in agreeability ($\bar X_{(F)} = 44.3$) than their male counterparts ($\bar X_{(M)} = 41.95$).
+</br>
+
+```{r dif_intro_gender}
+BFI2_a <- cbind(BFI2_a, BFI2[61:63])
+BFI2_a <- BFI2_a %>% 
+  mutate(total_score = rowSums(BFI2_a[1:12]))
+
+# Gender
+tapply(BFI2_a$total_score, BFI2_a$Gender, summary)
+```
+
+When it comes to age, the ´BFI2´ sample is rather homogeneous with all participants being 15 to 26 years old. I divided participants into two groups -- 15-20 (N = $1055$) and 21-26 (N = $678$) years old. The summary statistic shows, that the observed agreeability is a bit different for age groups with younger participants scoring (on average) lower ($\bar X = 42.82$) than older participants ($\bar X = 44.07$).
+</br>
+
+```{r dif_intro_age}
+# Age
+BFI2_a$Age <- factor(dplyr::case_when(BFI2_a$Age <= 20 ~ '15-20',
+                 TRUE ~ '21-26'))
+table(BFI2_a$Age)
+tapply(BFI2_a$total_score, BFI2_a$Age, summary)
+```
+
+The `Educ` variable has quite a lot of missing values (NA = $1010$). Nonetheless, I divided participants into two groups based on education level (secondary or tertiary). The observed ability in both groups is, again, slightly different with participants with tertiary education scoring higher ($\bar X = 44.64$) than participants with secondary education ($\bar X = 41.85$).
+
+
+```{r dif_intro_educ}
+# Education
+BFI2_a$Educ <- factor(dplyr::case_when(BFI2_a$Educ == "Secondary technical school" ~ "Secondary",
+                                      BFI2_a$Educ == "Secondary general school" ~ "Secondary",
+                                      BFI2_a$Educ == "Other secondary school" ~ "Secondary",
+                                      BFI2_a$Educ == "Tertiary professional school" ~ "Tertiary",
+                                      BFI2_a$Educ == "Bachelor degree" ~ "Tertiary",
+                                      BFI2_a$Educ == "Masters degree" ~ "Tertiary",
+                                      BFI2_a$Educ == "PhD" ~ "Tertiary"
+                                      ))
+                               
+summary(BFI2_a$Educ)
+tapply(BFI2_a$total_score, BFI2_a$Educ, summary)
+```
+
+
+```{r dif_delta_plot_bin}
+# binarize data
+BFI2_a_bin <- data.frame(lapply(BFI2_a[1:12], binarize))
+```
+
+With gender as the grouping variable and  using a normal approximation threshold, item 1 (*"Považuji se za někoho, kdo je společenský, družný."*) was detected as functioning differently. 
+
+```{r dif_delta_plot_gender, echo = TRUE}
+#Gender
+BFI2_a_binG <- BFI2_a_bin %>% 
+  mutate(Gender = BFI2_a$Gender)
+
+
+## Delta plot with fixed threshold
+(DP_fixed <- deltaPlotR::deltaPlot(data = BFI2_a_binG, group = "Gender",
+                                   focal.name = "Female", thr = 1.5))
+
+
+## Delta plot with normal approximation threshold
+(DP_norm <- deltaPlotR::deltaPlot(data = BFI2_a_binG, group = "Gender",
+                                  focal.name = "Female", thr = "norm"))
+```
+
+When using a normal approximation and age as a grouping a variable with a theshold of $0.6756$, item 6 is detected as functioning differently. Item 6 refers to item 27 in the complete inventory, and is phrased as: *"Považuji se za někoho, kdo má v povaze odpouštět."*.
+
+</br>
+
+```{r dif_delta_plot_age, echo = TRUE}
+# Age
+BFI2_a_binA <- BFI2_a_bin %>% 
+  mutate(Age = BFI2_a$Age)
+
+## Delta plot with fixed threshold
+(DP_fixed <- deltaPlotR::deltaPlot(data = BFI2_a_binA, group = "Age",
+                                   focal.name = "15-20", thr = 1.5))
+## Delta plot with normal approximation threshold
+(DP_norm <- deltaPlotR::deltaPlot(data = BFI2_a_binA, group = "Age",
+                                  focal.name = "15-20", thr = "norm"))
+deltaPlotR::diagPlot(DP_norm, thr.draw = TRUE, main ="DP_norm Age")
+```
+
+While using a fixed threshold and education as a grouping variable, item 6 was also detected as functioning differently. When using a threshold based on normal approximation, item 6 was detected as functioning differently with a threshold of $1.2715$.
+
+</br>
+
+```{r dif_delta_plot_educ, echo = TRUE}
+# Education
+BFI2_a_binE <- BFI2_a_bin %>% 
+  mutate(Educ = BFI2_a$Educ)
+
+## Delta plot with fixed threshold
+(DP_fixed <- deltaPlotR::deltaPlot(data = BFI2_a_binE, group = "Educ",
+                                   focal.name = "Secondary", thr = 1.5))
+deltaPlotR::diagPlot(DP_fixed, thr.draw = TRUE, main = "DP_fixed Education")
+
+## Delta plot with normal approximation threshold
+(DP_norm <- deltaPlotR::deltaPlot(data = BFI2_a_binE, group = "Educ",
+                                  focal.name = "Secondary", thr = "norm"))
+deltaPlotR::diagPlot(DP_norm, thr.draw = TRUE, main = "DP_norm Education")
+```
+
+Using the Mantel-Haenszel test, the following items were detected as functioning differently when grouping by gender: i2, i7, i17, i27, i32. The effect size for item i2 is large ($2.0368$), the effect for item i7 is moderate ($-1.0765$) and the rest is negligible. On average, the odds of agreeing with item i2 (*"Považuji se za někoho, kdo je soucitný, má dobré srdce."*) are about two times higher for females. On average, the odds of agreeing with item i7 (*"Považuji se za někoho, kdo je uctivý, s ostatními zachází s úctou."*) are higher for males. Both effects could be presumably explained by gender roles and corresponding societal expectations.
+
+</br>
+
+```{r dif_mh_test}
+difR::difMH(BFI2_a_binG, group = "Gender", focal.name = "Female")
+```
+
+Since I'm working with ordinal data, I selected a cumulative logit model for DIF with regression models. Items 2, 7, 17, 42 and 47 were detected as functioning differently based on gender. In order to at least agree a little with item 2 (*"Považuji se za někoho, kdo je soucitný, má dobré srdce."*) with a $50\%$ probability, male respondents were estimated to have a standardized total score of $-1.16$, while a somewhat lower standardized total score ($-1.86$) was sufficient for female respondents. A similar trend can be observed with item 17 (reversed - *"Považuji se za někoho, kdo s ostatními příliš nesoucítí.*), which makes sense given the wording of the two items. Item 42 on the other hand slightly favors male respondents, who, in order to at least agree a little bit with the statement *"Považuji se za někoho, kdo je vůči záměrům ostatních nedůvěřivý."* (reversed) with a 50% probability, were estimated to have a standardized total score of $1.08$. Female respondents were estimated to have a slightly higher total score of $1.15$. A male respondent with an average agreeability score has a $60\%$ probability of seeing himself at least somewhat as someone who is sympathetic, while a female respondent has a corresponding probability of $63\%$. With the Bejamini-Hochberg correction the detected items remain the same, but the p-value of item 42 is now only below the threshold $0.001$.
+
+</br>
+
+```{r dif_irt_fit}
+(fit <- difNLR::difORD(Data = BFI2_a[1:12], group = BFI2_a$Gender, focal.name = "Female", model = "cumulative"))
+```
+
+
+```{r dif_irt_coef, echo = TRUE}
+coef(fit, SE = TRUE)$iAcmp02
+coef(fit, SE = TRUE)$iAcmp17r
+coef(fit, SE = TRUE)$iAtrs42r
+```
+
+
+```{r dif_irt_plot, results='hide'}
+plot(fit, item = "iAcmp02", plot.type = "cumulative", group.names = c("Females", "Males"))
+plot(fit, item = "iAcmp02", plot.type = "category", group.names = c("Females", "Males"))
+```
+
+
+```{r dif_irt_predict, echo = TRUE}
+predict(fit, item = "iAcmp02", match = 0, group = c(0, 1)) %>% 
+  kable() %>% 
+  kable_styling()
+
+predict(fit, item = "iAcmp02", match = 0, group = c(0, 1), type = "cumulative") %>% 
+  kable() %>% 
+  kable_styling()
+```
+
+
+```{r dif_irt_BH}
+(fit_correc <- difNLR::difORD(Data = BFI2_a[1:12], group = BFI2_a$Gender, focal.name = "Female", model = "cumulative", p.adjust.method = "BH"))
+```
+
+
+### Discussion
+
+The data set is most notably limited by the narrow age range of the respondents ($15-26$) with a rather high level of achieved education, which might lead to an over-representation of certain traits and under-representation of others -- therefore, I would recommend a more representative sample. Furthermore, I would recommend gathering data in order to examine the test validity -- convergent (correlation with similar measures), construct validity (rater-concordance), discriminant validity (distinction from similar but not identical constructs), predictive validity (correlation of some domains with other measures, such as GPAs, future job performance) and incremental validity (comparing predictive value with other tests/measures). My analysis is limited by mostly focusing on a specific domain and by not taking the domain facets into account. Overall, the test exhibits decent measures of reliability, although the *Agreeability* domain would perhaps benefit from a reexamination, since it consistently yields the lowest reliability estimates. The *Negative Emotionality* and *Extraversion* domains on the other hand yield the highest estimates, which could be explained by the more precisely defined concepts of said domains. The subscales overlap in all but the *Extraversion* domain, in fact, some items from different subscales are phrased in a very similar way. I would consider rewording or removing certain items -- especially items `iEenl11r` (*“Považuji se za někoho, kdo zřídkakdy pociťuje vzrušení a nadšení pro věc.”*) and item `iEasr36r`(*"Považuji se za někoho, kdo pokládá za obtížné ovlivňovat druhé.."*) which lower the reliability of the *Extraversion* domain and provide almost no information. Some items of the **Agreeability** domain function differently for men and women, which could be expected due to established gender roles and corresponding societal expectations. Nonetheless, perhaps the wording of for example item `iAcmp02` (*"Považuji se za někoho, kdo je soucitný, má dobré srdce."*) could be adjusted. Range restriction in this data could occur for example if we wanted to determine the test-retest reliability of the **Negative Emotionality** subscale, but we only manage to collect new data from participants with a relatively high score from the first administration. I would adjust my analysis with the `rangeCorrection` function from the `psych` package or the Wiberg & Sundström formula, which would lead to a better estimate of the true test-retest reliability.
+
+</br>
+
+
+### References

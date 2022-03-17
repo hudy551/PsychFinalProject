@@ -1,0 +1,7 @@
+---
+name: "Final Project"
+navbar:
+  left:
+    - text: "Final Project"
+      href: index.html
+output_dir: "docs"
